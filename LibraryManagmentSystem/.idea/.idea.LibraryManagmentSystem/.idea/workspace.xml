@@ -6,26 +6,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8826aef4-4c60-46f5-9af6-27c0478a6a26" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Domain/Entities/Book.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Domain/Entities/Reservation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Domain/Entities/Role.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Domain/Entities/Status.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Domain/Entities/User.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Configurations/BookConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Configurations/ReservationConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Configurations/RoleConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Configurations/StatusConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Configurations/UserConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/DatabaseInitializer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/DatabaseOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Extensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/LibraryDbContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/Extensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Application/LibraryManagmentSystem.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Application/LibraryManagmentSystem.Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/LibraryManagmentSystem.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/LibraryManagmentSystem.Infrastructure.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/LibraryManagmentSystem.MVC.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/LibraryManagmentSystem.MVC.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LibraryManagmentSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LibraryManagmentSystem/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Configurations/RoleConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Configurations/RoleConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Configurations/StatusConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Configurations/StatusConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/DatabaseInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/DatabaseInitializer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +89,7 @@
       <workItem from="1679933567870" duration="432000" />
       <workItem from="1679942014375" duration="5181000" />
       <workItem from="1680026035617" duration="3656000" />
+      <workItem from="1680117680908" duration="399000" />
     </task>
     <servers />
   </component>
