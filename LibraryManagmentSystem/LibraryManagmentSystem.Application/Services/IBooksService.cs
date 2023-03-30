@@ -1,8 +1,9 @@
-﻿using LibraryManagmentSystem.Domain.Entities;
+﻿using LibraryManagmentSystem.Application.DTO;
+using LibraryManagmentSystem.Domain.Entities;
 
 namespace LibraryManagmentSystem.Application.Services;
 
 public interface IBooksService
 {
-    Task CreateBook(Book book);
+    Task CreateBook(BookDto book);
 }

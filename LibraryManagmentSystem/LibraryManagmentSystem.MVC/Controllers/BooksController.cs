@@ -1,4 +1,5 @@
-﻿using LibraryManagmentSystem.Application.Services;
+﻿using LibraryManagmentSystem.Application.DTO;
+using LibraryManagmentSystem.Application.Services;
 using LibraryManagmentSystem.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,8 +20,12 @@ public class BooksController : Controller
     }
     
     [HttpPost]
-    public async Task<IActionResult> CreateBook(Book book)
+    public async Task<IActionResult> CreateBook(BookDto book)
     {
+        if (!ModelState.IsValid)
+        {
+            return View(book);
+        }
         await _booksService.CreateBook(book);
         return RedirectToAction(nameof(CreateBook));
     }

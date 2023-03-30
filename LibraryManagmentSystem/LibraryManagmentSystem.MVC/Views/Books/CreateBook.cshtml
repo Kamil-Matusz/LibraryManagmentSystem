@@ -1,4 +1,7 @@
-﻿
+﻿@using LibraryManagmentSystem.Application.DTO;
+@model BookDto
+
+
 <h1>Add new Book to the Library</h1>
 <hr />
 
@@ -7,19 +10,23 @@
         <form action="/Books/CreateBook" method="post">
             <div class="form-group mb-3">
                 <label class="control-label" for="Name">Book Name</label>
-                <input class="form-control" type="text" id="Name" name="Name" />
+                <input class="form-control" type="text" id="Name" asp-for="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
              <div class="form-group mb-3">
                 <label class="control-label" for="Author">Author</label>
-                <input class="form-control" type="text" id="Author" name="Author" />
+                <input class="form-control" type="text" id="Author" asp-for="Author" />
+                <span asp-validation-for="Author" class="text-danger"></span>
             </div>
              <div class="form-group mb-3">
                 <label class="control-label" for="Genre">Genre</label>
-                <input class="form-control" type="text" id="Genre" name="Genre" />
+                <input class="form-control" type="text" id="Genre" asp-for="Genre" />
+                <span asp-validation-for="Genre" class="text-danger"></span>
             </div>
              <div class="form-group mb-3">
                 <label class="control-label" for="Date">Published Date</label>
-                <input class="form-control" type="date" id="Date" name="PublishedDate" />
+                <input class="form-control" type="date" id="Date" asp-for="PublishedDate" />
+                <span asp-validation-for="PublishedDate" class="text-danger"></span>
             </div>
              <div class="form-group mb-3">
                  <input type="submit" value="Add Book" class="btn btn-primary" />
@@ -27,3 +34,9 @@
         </form>
     </div>
 </div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
