@@ -6,10 +6,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8826aef4-4c60-46f5-9af6-27c0478a6a26" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LibraryManagmentSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LibraryManagmentSystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Configurations/RoleConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Configurations/RoleConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Configurations/StatusConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Configurations/StatusConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/DatabaseInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/DatabaseInitializer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Application/Extensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Application/Services/BooksService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Application/Services/IBooksService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Domain/Interfaces/IBooksRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/Repositories/BooksRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Controllers/BooksController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Application/LibraryManagmentSystem.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Application/LibraryManagmentSystem.Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/Extensions.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +94,7 @@
       <workItem from="1679942014375" duration="5181000" />
       <workItem from="1680026035617" duration="3656000" />
       <workItem from="1680117680908" duration="399000" />
+      <workItem from="1680119549189" duration="2803000" />
     </task>
     <servers />
   </component>

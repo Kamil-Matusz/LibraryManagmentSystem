@@ -7,13 +7,4 @@ public class Book
     public string Author { get; set; }
     public string Genre { get; set; }
     public DateTime PublishedDate { get; set; }
-
-    public Book(int bookId, string name, string author, string genre, DateTime publishedDate)
-    {
-        BookId = bookId;
-        Name = name;
-        Author = author;
-        Genre = genre;
-        PublishedDate = publishedDate;
-    }
 }

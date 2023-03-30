@@ -1,4 +1,6 @@
-﻿using LibraryManagmentSystem.Infrastructure.DAL;
+﻿using LibraryManagmentSystem.Domain.Interfaces;
+using LibraryManagmentSystem.Infrastructure.DAL;
+using LibraryManagmentSystem.Infrastructure.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,7 +13,7 @@ public static class Extensions
     public static IServiceCollection AddInfrastructure(this IServiceCollection services,IConfiguration configuration)
     {
         services.AddDatabase(configuration);
-        
+        services.AddScoped<IBooksRepository, BooksRepository>();
         return services;
     }
     

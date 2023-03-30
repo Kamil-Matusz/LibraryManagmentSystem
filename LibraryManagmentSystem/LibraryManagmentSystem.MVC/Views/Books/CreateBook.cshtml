@@ -1,0 +1,29 @@
+﻿
+<h1>Add new Book to the Library</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form action="/Books/CreateBook" method="post">
+            <div class="form-group mb-3">
+                <label class="control-label" for="Name">Book Name</label>
+                <input class="form-control" type="text" id="Name" name="Name" />
+            </div>
+             <div class="form-group mb-3">
+                <label class="control-label" for="Author">Author</label>
+                <input class="form-control" type="text" id="Author" name="Author" />
+            </div>
+             <div class="form-group mb-3">
+                <label class="control-label" for="Genre">Genre</label>
+                <input class="form-control" type="text" id="Genre" name="Genre" />
+            </div>
+             <div class="form-group mb-3">
+                <label class="control-label" for="Date">Published Date</label>
+                <input class="form-control" type="date" id="Date" name="PublishedDate" />
+            </div>
+             <div class="form-group mb-3">
+                 <input type="submit" value="Add Book" class="btn btn-primary" />
+             </div>
+        </form>
+    </div>
+</div>
