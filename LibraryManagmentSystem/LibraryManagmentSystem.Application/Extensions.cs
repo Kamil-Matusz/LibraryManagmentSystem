@@ -1,4 +1,7 @@
-﻿using LibraryManagmentSystem.Application.Mapping;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
+using LibraryManagmentSystem.Application.DTO;
+using LibraryManagmentSystem.Application.Mapping;
 using LibraryManagmentSystem.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,6 +13,12 @@ public static class Extensions
     {
         services.AddScoped<IBooksService, BooksService>();
         services.AddAutoMapper(typeof(BookMappingProfile));
+
+        services
+            .AddValidatorsFromAssemblyContaining<BookDto>()
+            .AddFluentValidationAutoValidation()
+            .AddFluentValidationClientsideAdapters();
+
         return services;
     }
 }

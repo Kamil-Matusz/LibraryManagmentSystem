@@ -5,4 +5,6 @@ namespace LibraryManagmentSystem.Domain.Interfaces;
 public interface IBooksRepository
 {
     Task CreateBook(Book book);
+    Task<Book?> GetBookByName(string name);
+    Task<IEnumerable<Book>> GetAllBooks();
 }

@@ -6,4 +6,5 @@ namespace LibraryManagmentSystem.Application.Services;
 public interface IBooksService
 {
     Task CreateBook(BookDto book);
+    Task<IEnumerable<BookDto>> GetAllBooks();
 }

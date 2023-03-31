@@ -1,6 +1,7 @@
 ﻿using LibraryManagmentSystem.Domain.Entities;
 using LibraryManagmentSystem.Domain.Interfaces;
 using LibraryManagmentSystem.Infrastructure.DAL;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagmentSystem.Infrastructure.Repositories;
 
@@ -17,4 +18,8 @@ internal class BooksRepository : IBooksRepository
         _dbContext.Add(book);
         await _dbContext.SaveChangesAsync();
     }
+
+    public async Task<IEnumerable<Book>> GetAllBooks() => await _dbContext.Books.ToListAsync();
+
+    public async Task<Book?> GetBookByName(string name) => await _dbContext.Books.FirstOrDefaultAsync(x => x.Name.ToLower() == name.ToLower());
 }

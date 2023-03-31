@@ -20,4 +20,12 @@ public class BooksService : IBooksService
         var book = _mapper.Map<Book>(bookDto);
         await _booksRepository.CreateBook(book);
     }
+
+    public async Task<IEnumerable<BookDto>> GetAllBooks()
+    {
+        var books = await _booksRepository.GetAllBooks();
+        var dtos = _mapper.Map<IEnumerable<BookDto>>(books);
+
+        return dtos;
+    }
 }

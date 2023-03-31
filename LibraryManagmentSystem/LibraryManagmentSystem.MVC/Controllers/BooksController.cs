@@ -14,6 +14,13 @@ public class BooksController : Controller
         _booksService = booksService;
     }
 
+
+    public async Task<IActionResult> Index()
+    {
+        var books = await _booksService.GetAllBooks();
+        return View(books);
+    }
+
     public IActionResult CreateBook()
     {
         return View();
@@ -27,6 +34,6 @@ public class BooksController : Controller
             return View(book);
         }
         await _booksService.CreateBook(book);
-        return RedirectToAction(nameof(CreateBook));
+        return RedirectToAction(nameof(Index));
     }
 }
