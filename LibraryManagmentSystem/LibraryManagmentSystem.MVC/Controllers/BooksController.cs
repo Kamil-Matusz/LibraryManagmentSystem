@@ -1,23 +1,25 @@
-﻿using LibraryManagmentSystem.Application.DTO;
+﻿using LibraryManagmentSystem.Application.Commands;
+using LibraryManagmentSystem.Application.DTO;
+using LibraryManagmentSystem.Application.Queries;
 using LibraryManagmentSystem.Application.Services;
 using LibraryManagmentSystem.Domain.Entities;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryManagmentSystem.MVC.Controllers;
 
 public class BooksController : Controller
 {
-    private readonly IBooksService _booksService;
-
-    public BooksController(IBooksService booksService)
+    private readonly IMediator _mediator;
+    public BooksController(IMediator mediator)
     {
-        _booksService = booksService;
+        _mediator = mediator;
     }
 
 
     public async Task<IActionResult> Index()
     {
-        var books = await _booksService.GetAllBooks();
+        var books = await _mediator.Send(new GetAllBooksQuery());
         return View(books);
     }
 
@@ -27,13 +29,13 @@ public class BooksController : Controller
     }
     
     [HttpPost]
-    public async Task<IActionResult> CreateBook(BookDto book)
+    public async Task<IActionResult> CreateBook(CreateBookCommand command)
     {
         if (!ModelState.IsValid)
         {
-            return View(book);
+            return View(command);
         }
-        await _booksService.CreateBook(book);
+        await _mediator.Send(command);
         return RedirectToAction(nameof(Index));
     }
 }

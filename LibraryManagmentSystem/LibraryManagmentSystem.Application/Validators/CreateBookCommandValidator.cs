@@ -6,12 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibraryManagmentSystem.Application.Commands;
 
 namespace LibraryManagmentSystem.Application.Validators
 {
-    internal class BookDtoValidator : AbstractValidator<BookDto>
+    internal class CreateBookCommandValidator : AbstractValidator<CreateBookCommand>
     {
-        public BookDtoValidator(IBooksRepository booksRepository)
+        public CreateBookCommandValidator(IBooksRepository booksRepository)
         {
             RuleFor(x => x.Name)
                 .NotEmpty()

@@ -6,14 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8826aef4-4c60-46f5-9af6-27c0478a6a26" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Application/DTO/BookDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Application/Mapping/BookMappingProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LibraryManagmentSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LibraryManagmentSystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Application/Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Application/Extensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Application/LibraryManagmentSystem.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Application/LibraryManagmentSystem.Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Application/Services/BooksService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Application/Services/BooksService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Application/Services/IBooksService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Application/Services/IBooksService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Controllers/BooksController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Controllers/BooksController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Application/Validators/BookDtoValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Application/Validators/CreateBookCommandValidator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +90,7 @@
       <workItem from="1680117680908" duration="399000" />
       <workItem from="1680119549189" duration="2803000" />
       <workItem from="1680173345983" duration="3294000" />
+      <workItem from="1680273822967" duration="312000" />
     </task>
     <servers />
   </component>
