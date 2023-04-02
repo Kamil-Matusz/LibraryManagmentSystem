@@ -6,8 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8826aef4-4c60-46f5-9af6-27c0478a6a26" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Application/LibraryManagmentSystem.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Application/LibraryManagmentSystem.Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Application/Validators/BookDtoValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Application/Validators/CreateBookCommandValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LibraryManagmentSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LibraryManagmentSystem/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Domain/Interfaces/IBooksRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Domain/Interfaces/IBooksRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/Repositories/BooksRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/Repositories/BooksRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Controllers/BooksController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Controllers/BooksController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Views/Books/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Views/Books/Index.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +94,8 @@
       <workItem from="1680119549189" duration="2803000" />
       <workItem from="1680173345983" duration="3294000" />
       <workItem from="1680273822967" duration="312000" />
+      <workItem from="1680377818872" duration="252000" />
+      <workItem from="1680439206754" duration="51000" />
     </task>
     <servers />
   </component>

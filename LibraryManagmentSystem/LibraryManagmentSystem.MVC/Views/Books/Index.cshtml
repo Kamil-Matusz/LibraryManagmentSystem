@@ -18,8 +18,8 @@
                 <h6 class="card-subtitle mb-2 text-muted">@item.Author</h6>
                 <p class="card-text">@item.Genre</p>
                 <p class="card-text">@item.PublishedDate</p>
-                <a href="#" class="btn btn-primary">Details</a>
-                <a href="#" class="btn btn-outline-secondary">Edit</a>
+                <a class="btn btn-primary" asp-controller="Books" asp-action="BookDetails" asp-route-bookName="@item.Name">Details</a>
+                <a class="btn btn-outline-secondary" asp-action="EditBook" asp-route-bookName="@item.Name">Edit</a>
             </div>
         </div>
     }

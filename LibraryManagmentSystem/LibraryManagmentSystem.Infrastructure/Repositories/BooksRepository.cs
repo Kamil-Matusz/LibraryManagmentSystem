@@ -13,6 +13,9 @@ internal class BooksRepository : IBooksRepository
     {
         _dbContext = dbContext;
     }
+
+    public Task Commit() => _dbContext.SaveChangesAsync();
+
     public async Task CreateBook(Book book)
     {
         _dbContext.Add(book);
@@ -20,6 +23,9 @@ internal class BooksRepository : IBooksRepository
     }
 
     public async Task<IEnumerable<Book>> GetAllBooks() => await _dbContext.Books.ToListAsync();
+
+    public async Task<Book> GetBook(string name) => await _dbContext.Books.FirstAsync(x => x.Name == name);
+   
 
     public async Task<Book?> GetBookByName(string name) => await _dbContext.Books.FirstOrDefaultAsync(x => x.Name.ToLower() == name.ToLower());
 }

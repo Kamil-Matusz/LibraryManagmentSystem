@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using LibraryManagmentSystem.Application.Commands;
 using LibraryManagmentSystem.Application.DTO;
 using LibraryManagmentSystem.Domain.Entities;
 
@@ -19,5 +20,7 @@ public class BookMappingProfile : Profile
             .ForMember(dto => dto.Author, opt => opt.MapFrom(src => src.Author))
             .ForMember(dto => dto.Genre, opt => opt.MapFrom(src => src.Genre))
             .ForMember(dto => dto.PublishedDate , opt => opt.MapFrom(src => src.PublishedDate));
+
+        CreateMap<BookDto, EditBookCommand>();
     }
 }

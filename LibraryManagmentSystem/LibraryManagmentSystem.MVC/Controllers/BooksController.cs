@@ -1,6 +1,8 @@
-﻿using LibraryManagmentSystem.Application.Commands;
+﻿using AutoMapper;
+using LibraryManagmentSystem.Application.Commands;
 using LibraryManagmentSystem.Application.DTO;
 using LibraryManagmentSystem.Application.Queries;
+using LibraryManagmentSystem.Application.Queries.Handlers;
 using LibraryManagmentSystem.Application.Services;
 using LibraryManagmentSystem.Domain.Entities;
 using MediatR;
@@ -11,9 +13,11 @@ namespace LibraryManagmentSystem.MVC.Controllers;
 public class BooksController : Controller
 {
     private readonly IMediator _mediator;
-    public BooksController(IMediator mediator)
+    private readonly IMapper _mapper;
+    public BooksController(IMediator mediator,IMapper mapper)
     {
         _mediator = mediator;
+        _mapper = mapper;
     }
 
 
@@ -30,6 +34,33 @@ public class BooksController : Controller
     
     [HttpPost]
     public async Task<IActionResult> CreateBook(CreateBookCommand command)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(command);
+        }
+        await _mediator.Send(command);
+        return RedirectToAction(nameof(Index));
+    }
+
+    [Route("Books/{bookName}/Details")]
+    public async Task<IActionResult> BookDetails(string bookName)
+    {
+        var dto = await _mediator.Send(new GetBookDetailsQuery(bookName));
+        return View(dto);
+    }
+
+    [Route("Books/{bookName}/Edit")]
+    public async Task<IActionResult> EditBook(string bookName)
+    {
+        var dto = await _mediator.Send(new GetBookDetailsQuery(bookName));
+        EditBookCommand command = _mapper.Map<EditBookCommand>(dto);
+        return View(command);
+    }
+
+    [HttpPut]
+    [Route("Books/{bookName}/Edit")]
+    public async Task<IActionResult> EditBook(string bookName,EditBookCommand command)
     {
         if (!ModelState.IsValid)
         {
