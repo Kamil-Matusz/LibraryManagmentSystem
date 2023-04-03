@@ -1,11 +1,12 @@
-﻿@model LibraryManagmentSystem.Application.DTO.BookDto
+﻿@model LibraryManagmentSystem.Application.Commands.DeleteBookCommand
 
 @{
-    ViewData["Title"] = "BookDetails";
+    ViewData["Title"] = "DeleteBook";
 }
 
-<h1>Book Details</h1>
+<h1>DeleteBook</h1>
 
+<h3>Are you sure you want to delete this?</h3>
 <div>
     <hr />
     <dl class="row">
@@ -34,8 +35,9 @@
             @Html.DisplayFor(model => model.PublishedDate)
         </dd>
     </dl>
-</div>
-<div>
-    <a class="btn btn-outline-secondary" asp-action="EditBook" asp-route-bookName="@Model.Name">Edit Book</a>
-    <a asp-action="Index" class="btn btn-primary">Back to Book List</a>
+    
+    <form asp-action="DeleteBook">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </form>
 </div>

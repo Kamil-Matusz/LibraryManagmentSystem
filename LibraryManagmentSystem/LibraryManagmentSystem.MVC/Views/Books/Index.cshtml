@@ -19,7 +19,8 @@
                 <p class="card-text">@item.Genre</p>
                 <p class="card-text">@item.PublishedDate</p>
                 <a class="btn btn-primary" asp-controller="Books" asp-action="BookDetails" asp-route-bookName="@item.Name">Details</a>
-                <a class="btn btn-outline-secondary" asp-action="EditBook" asp-route-bookName="@item.Name">Edit</a>
+                <a class="btn btn-outline-secondary" asp-controller="Books" asp-action="EditBook" asp-route-bookName="@item.Name">Edit</a>
+                <a class="btn btn-outline-danger" asp-controller="Books" asp-action="DeleteBook" asp-route-bookName="@item.Name">Delete</a>
             </div>
         </div>
     }

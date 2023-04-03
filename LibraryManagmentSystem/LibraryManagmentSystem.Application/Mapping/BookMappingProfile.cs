@@ -22,5 +22,7 @@ public class BookMappingProfile : Profile
             .ForMember(dto => dto.PublishedDate , opt => opt.MapFrom(src => src.PublishedDate));
 
         CreateMap<BookDto, EditBookCommand>();
+
+        CreateMap<BookDto, DeleteBookCommand>();
     }
 }

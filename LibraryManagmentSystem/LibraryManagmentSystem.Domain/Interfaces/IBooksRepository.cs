@@ -8,5 +8,6 @@ public interface IBooksRepository
     Task<Book?> GetBookByName(string name);
     Task<IEnumerable<Book>> GetAllBooks();
     Task<Book> GetBook(string name);
-    Task Commit();
+    Task UpdateBook();
+    Task DeleteBook(Book book);
 }

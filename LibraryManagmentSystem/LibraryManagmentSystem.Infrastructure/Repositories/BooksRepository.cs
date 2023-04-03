@@ -1,6 +1,7 @@
 ﻿using LibraryManagmentSystem.Domain.Entities;
 using LibraryManagmentSystem.Domain.Interfaces;
 using LibraryManagmentSystem.Infrastructure.DAL;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagmentSystem.Infrastructure.Repositories;
@@ -22,10 +23,18 @@ internal class BooksRepository : IBooksRepository
         await _dbContext.SaveChangesAsync();
     }
 
+    public async Task DeleteBook(Book book)
+    {
+        _dbContext.Remove(book);
+        await _dbContext.SaveChangesAsync();
+    }
+
     public async Task<IEnumerable<Book>> GetAllBooks() => await _dbContext.Books.ToListAsync();
 
     public async Task<Book> GetBook(string name) => await _dbContext.Books.FirstAsync(x => x.Name == name);
    
 
     public async Task<Book?> GetBookByName(string name) => await _dbContext.Books.FirstOrDefaultAsync(x => x.Name.ToLower() == name.ToLower());
+
+    public Task UpdateBook() => _dbContext.SaveChangesAsync();
 }

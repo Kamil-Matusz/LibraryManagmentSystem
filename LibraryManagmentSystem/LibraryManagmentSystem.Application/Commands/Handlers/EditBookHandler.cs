@@ -17,13 +17,12 @@ namespace LibraryManagmentSystem.Application.Commands.Handlers
         }
         public async Task<Unit> Handle(EditBookCommand request, CancellationToken cancellationToken)
         {
-            var book = await _booksRepository.GetBookByName(request.Name);
-            book.Name = request.Name;
+            var book = await _booksRepository.GetBookByName(request.Name!);
+            
             book.Author = request.Author;
-            book.Genre = request.Genre;
             book.PublishedDate = request.PublishedDate;
 
-            await _booksRepository.Commit();
+            await _booksRepository.UpdateBook();
             return Unit.Value;
         }
     }

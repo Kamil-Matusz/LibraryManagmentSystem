@@ -13,17 +13,6 @@ namespace LibraryManagmentSystem.Application.Validators
     {
         public EditBookCommandValidator(IBooksRepository booksRepository)
         {
-            RuleFor(x => x.Name)
-                .NotEmpty()
-                .MinimumLength(3)
-            .Custom((value, context) =>
-            {
-                    var existingBook = booksRepository.GetBookByName(value).Result;
-                    if (existingBook != null)
-                    {
-                        context.AddFailure($"{value} is not unique for book");
-                    }
-                });
             RuleFor(x => x.Author)
                 .NotEmpty()
                 .MinimumLength(3);

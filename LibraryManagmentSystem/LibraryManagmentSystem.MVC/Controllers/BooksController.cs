@@ -20,7 +20,6 @@ public class BooksController : Controller
         _mapper = mapper;
     }
 
-
     public async Task<IActionResult> Index()
     {
         var books = await _mediator.Send(new GetAllBooksQuery());
@@ -58,7 +57,7 @@ public class BooksController : Controller
         return View(command);
     }
 
-    [HttpPut]
+    [HttpPost]
     [Route("Books/{bookName}/Edit")]
     public async Task<IActionResult> EditBook(string bookName,EditBookCommand command)
     {
@@ -66,6 +65,28 @@ public class BooksController : Controller
         {
             return View(command);
         }
+        
+        await _mediator.Send(command);
+        return RedirectToAction(nameof(Index));
+    }
+
+    [Route("Books/{bookName}/Delete")]
+    public async Task<IActionResult> DeleteBook(string bookName)
+    {
+        var dto = await _mediator.Send(new GetBookDetailsQuery(bookName));
+        DeleteBookCommand command = _mapper.Map<DeleteBookCommand>(dto);
+        return View(command);
+    }
+
+    [HttpPost]
+    [Route("Books/{bookName}/Delete")]
+    public async Task<IActionResult> DeleteBook(string bookName, DeleteBookCommand command)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(command);
+        }
+
         await _mediator.Send(command);
         return RedirectToAction(nameof(Index));
     }
