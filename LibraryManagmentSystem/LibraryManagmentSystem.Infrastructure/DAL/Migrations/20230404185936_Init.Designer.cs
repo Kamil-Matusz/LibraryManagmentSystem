@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryManagmentSystem.Infrastructure.DAL.Migrations
 {
     [DbContext(typeof(LibraryDbContext))]
-    [Migration("20230329192714_Init")]
+    [Migration("20230404185936_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -84,24 +84,7 @@ namespace LibraryManagmentSystem.Infrastructure.DAL.Migrations
 
                     b.HasIndex("StatusId");
 
-                    b.HasIndex("UserId");
-
                     b.ToTable("Reservations");
-                });
-
-            modelBuilder.Entity("LibraryManagmentSystem.Domain.Entities.Role", b =>
-                {
-                    b.Property<int>("RoleId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("RoleName")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.HasKey("RoleId");
-
-                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("LibraryManagmentSystem.Domain.Entities.Status", b =>
@@ -119,48 +102,6 @@ namespace LibraryManagmentSystem.Infrastructure.DAL.Migrations
                     b.ToTable("Status");
                 });
 
-            modelBuilder.Entity("LibraryManagmentSystem.Domain.Entities.User", b =>
-                {
-                    b.Property<Guid>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Fullname")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<int>("RoleId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.HasKey("UserId");
-
-                    b.HasIndex("Email")
-                        .IsUnique();
-
-                    b.HasIndex("RoleId");
-
-                    b.HasIndex("Username")
-                        .IsUnique();
-
-                    b.ToTable("Users");
-                });
-
             modelBuilder.Entity("LibraryManagmentSystem.Domain.Entities.Reservation", b =>
                 {
                     b.HasOne("LibraryManagmentSystem.Domain.Entities.Book", null)
@@ -172,21 +113,6 @@ namespace LibraryManagmentSystem.Infrastructure.DAL.Migrations
                     b.HasOne("LibraryManagmentSystem.Domain.Entities.Status", null)
                         .WithMany()
                         .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LibraryManagmentSystem.Domain.Entities.User", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("LibraryManagmentSystem.Domain.Entities.User", b =>
-                {
-                    b.HasOne("LibraryManagmentSystem.Domain.Entities.Role", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

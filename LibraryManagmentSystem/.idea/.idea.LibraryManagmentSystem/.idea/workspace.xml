@@ -6,11 +6,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8826aef4-4c60-46f5-9af6-27c0478a6a26" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LibraryManagmentSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LibraryManagmentSystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Domain/Interfaces/IBooksRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Domain/Interfaces/IBooksRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/Repositories/BooksRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/Repositories/BooksRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Controllers/BooksController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Controllers/BooksController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Views/Books/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Views/Books/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Domain/Entities/Role.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Domain/Entities/User.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Configurations/ReservationConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Configurations/ReservationConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Configurations/RoleConfiguration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Configurations/UserConfiguration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/DatabaseInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/DatabaseInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/LibraryDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/LibraryDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Migrations/20230329192714_Init.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Migrations/20230329192714_Init.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/DAL/Migrations/LibraryDbContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/LibraryManagmentSystem.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/LibraryManagmentSystem.Infrastructure.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +27,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2NZChewWbC4nRAm1WXRTdDHpHkP" />
   <component name="ProjectLevelVcsManager">
@@ -96,6 +107,7 @@
       <workItem from="1680273822967" duration="312000" />
       <workItem from="1680377818872" duration="252000" />
       <workItem from="1680439206754" duration="51000" />
+      <workItem from="1680634460166" duration="388000" />
     </task>
     <servers />
   </component>

@@ -395,6 +395,7 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+.idea/
 /.idea/*
 !/.idea/.idea.*
 /.idea/.idea.*/*

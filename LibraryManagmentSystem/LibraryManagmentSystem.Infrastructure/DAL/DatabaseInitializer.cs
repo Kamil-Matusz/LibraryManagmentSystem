@@ -33,18 +33,6 @@ internal  sealed class DatabaseInitializer : IHostedService
                 dbContext.Status.AddRange(status);
                 dbContext.SaveChanges();
             }
-            
-            var role = dbContext.Roles.ToList();
-            if (!role.Any())
-            {
-                role = new List<Role>()
-                {
-                    new Role(1,"Admin"),
-                    new Role(2,"User"),
-                };
-                dbContext.Roles.AddRange(role);
-                dbContext.SaveChanges();
-            }
         }
 
         return Task.CompletedTask;

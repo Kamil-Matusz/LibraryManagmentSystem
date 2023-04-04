@@ -10,10 +10,7 @@ internal sealed class ReservationConfiguration : IEntityTypeConfiguration<Reserv
     {
         builder.HasKey(x => x.ReservationId);
         builder.HasOne<Book>().WithMany().HasForeignKey(x => x.BookId);
-        builder.HasOne<User>().WithMany().HasForeignKey(x => x.UserId);
         builder.HasOne<Status>().WithMany().HasForeignKey(x => x.StatusId);
-
-        builder.Property(x => x.UserId).IsRequired();
         builder.Property(x => x.BookId).IsRequired();
         builder.Property(x => x.StatusId).IsRequired();
     }
