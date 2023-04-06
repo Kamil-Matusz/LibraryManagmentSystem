@@ -18,8 +18,11 @@ internal static class Extensions
         
         
         services.AddDbContext<LibraryDbContext>(x => x.UseSqlServer(options.connectionString));
-        services.AddDefaultIdentity<IdentityUser>()
+        services
+            .AddDefaultIdentity<IdentityUser>()
+            .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<LibraryDbContext>();
+
         services.AddHostedService<DatabaseInitializer>();
         
         return services;

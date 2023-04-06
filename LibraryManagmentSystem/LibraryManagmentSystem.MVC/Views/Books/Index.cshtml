@@ -7,7 +7,10 @@
 <h1>List of All Books</h1>
 
 <p>
-    <a asp-action="CreateBook" class="btn btn-secondary">Create New</a>
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-action="CreateBook" class="btn btn-secondary">Create New</a>
+    }
 </p>
 <div class="row">
      @foreach (var item in Model)

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using LibraryManagmentSystem.Application.ApplicationUser;
 using LibraryManagmentSystem.Application.Commands;
 using LibraryManagmentSystem.Application.DTO;
 using LibraryManagmentSystem.Application.Queries;
@@ -6,6 +7,7 @@ using LibraryManagmentSystem.Application.Queries.Handlers;
 using LibraryManagmentSystem.Application.Services;
 using LibraryManagmentSystem.Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryManagmentSystem.MVC.Controllers;
@@ -28,8 +30,13 @@ public class BooksController : Controller
 
     public IActionResult CreateBook()
     {
+        /*if(!User.IsInRole("Admin")) 
+        {
+            return RedirectToAction("NoAccess", "Home");
+        }*/
         return View();
     }
+
     
     [HttpPost]
     public async Task<IActionResult> CreateBook(CreateBookCommand command)

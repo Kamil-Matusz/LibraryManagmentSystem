@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using FluentValidation.AspNetCore;
+using LibraryManagmentSystem.Application.ApplicationUser;
 using LibraryManagmentSystem.Application.Commands;
 using LibraryManagmentSystem.Application.DTO;
 using LibraryManagmentSystem.Application.Mapping;
@@ -14,7 +15,11 @@ public static class Extensions
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
         services.AddMediatR(typeof(CreateBookCommand));
+        services.AddMediatR(typeof(EditBookCommand));
+        services.AddMediatR(typeof(DeleteBookCommand));
         services.AddAutoMapper(typeof(BookMappingProfile));
+
+        services.AddScoped<IUserContext, UserContext>();
 
         services
             .AddValidatorsFromAssemblyContaining<BookDto>()
