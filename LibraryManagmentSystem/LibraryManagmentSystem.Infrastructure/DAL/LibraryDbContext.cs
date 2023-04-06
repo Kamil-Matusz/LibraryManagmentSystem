@@ -1,9 +1,10 @@
 ﻿using LibraryManagmentSystem.Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagmentSystem.Infrastructure.DAL;
 
-internal class LibraryDbContext : DbContext
+internal class LibraryDbContext : IdentityDbContext
 {
     public DbSet<Book> Books { get; set; }
     public DbSet<Reservation> Reservations { get; set; }
@@ -15,6 +16,7 @@ internal class LibraryDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
     }
 }

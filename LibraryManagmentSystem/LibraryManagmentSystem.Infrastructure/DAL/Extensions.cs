@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -17,6 +18,11 @@ internal static class Extensions
         
         
         services.AddDbContext<LibraryDbContext>(x => x.UseSqlServer(options.connectionString));
+        services
+            .AddDefaultIdentity<IdentityUser>()
+            .AddRoles<IdentityRole>()
+            .AddEntityFrameworkStores<LibraryDbContext>();
+
         services.AddHostedService<DatabaseInitializer>();
         
         return services;

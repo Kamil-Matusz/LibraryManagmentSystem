@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var action = ViewContext.RouteData.Values["Action"]?.ToString();
+    var controller = ViewContext.RouteData.Values["Controller"]?.ToString();
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -29,6 +34,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="Index">Books List</a>
                         </li>
                     </ul>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>

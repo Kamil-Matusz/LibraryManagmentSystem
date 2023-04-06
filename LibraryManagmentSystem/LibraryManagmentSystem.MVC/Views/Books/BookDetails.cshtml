@@ -36,6 +36,9 @@
     </dl>
 </div>
 <div>
-    <a class="btn btn-outline-secondary" asp-action="EditBook" asp-route-bookName="@Model.Name">Edit Book</a>
+    @if (User.IsInRole("Admin"))
+    {
+        <a class="btn btn-outline-secondary" asp-action="EditBook" asp-route-bookName="@Model.Name">Edit Book</a>
+    }
     <a asp-action="Index" class="btn btn-primary">Back to Book List</a>
 </div>
