@@ -6,9 +6,12 @@ using LibraryManagmentSystem.Application.Queries;
 using LibraryManagmentSystem.Application.Queries.Handlers;
 using LibraryManagmentSystem.Application.Services;
 using LibraryManagmentSystem.Domain.Entities;
+using LibraryManagmentSystem.MVC.Extensions;
+using LibraryManagmentSystem.MVC.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace LibraryManagmentSystem.MVC.Controllers;
 
@@ -30,10 +33,7 @@ public class BooksController : Controller
 
     public IActionResult CreateBook()
     {
-        /*if(!User.IsInRole("Admin")) 
-        {
-            return RedirectToAction("NoAccess", "Home");
-        }*/
+       
         return View();
     }
 
@@ -45,7 +45,10 @@ public class BooksController : Controller
         {
             return View(command);
         }
-        await _mediator.Send(command);
+        //await _mediator.Send(command);
+
+        this.SetNotification("success", $"Added book: {command.Name}");
+
         return RedirectToAction(nameof(Index));
     }
 
@@ -85,7 +88,7 @@ public class BooksController : Controller
         return View(command);
     }
 
-    [HttpPost]
+    [HttpDelete]
     [Route("Books/{bookName}/Delete")]
     public async Task<IActionResult> DeleteBook(string bookName, DeleteBookCommand command)
     {
