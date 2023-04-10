@@ -45,7 +45,7 @@ public class BooksController : Controller
         {
             return View(command);
         }
-        //await _mediator.Send(command);
+        await _mediator.Send(command);
 
         this.SetNotification("success", $"Added book: {command.Name}");
 
@@ -98,6 +98,25 @@ public class BooksController : Controller
         }
 
         await _mediator.Send(command);
+        return RedirectToAction(nameof(Index));
+    }
+
+    public IActionResult CreateBookReservation()
+    {
+
+        return View();
+    }
+
+
+    [HttpPost]
+    public async Task<IActionResult> CreateBookReservation(CreateReservationCommand command)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(command);
+        }
+        await _mediator.Send(command);
+
         return RedirectToAction(nameof(Index));
     }
 }

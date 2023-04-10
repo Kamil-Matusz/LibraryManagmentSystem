@@ -23,6 +23,12 @@ internal class BooksRepository : IBooksRepository
         await _dbContext.SaveChangesAsync();
     }
 
+    public async Task CreateBookReservation(Reservation reservation)
+    {
+       _dbContext.Add(reservation);
+        await _dbContext.SaveChangesAsync();
+    }
+
     public async Task DeleteBook(Book book)
     {
         _dbContext.Remove(book);
