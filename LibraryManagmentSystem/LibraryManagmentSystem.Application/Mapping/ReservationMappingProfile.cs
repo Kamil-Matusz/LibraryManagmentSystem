@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using LibraryManagmentSystem.Application.Commands;
 using LibraryManagmentSystem.Application.DTO;
 using LibraryManagmentSystem.Domain.Entities;
 using System;
@@ -24,6 +25,12 @@ namespace LibraryManagmentSystem.Application.Mapping
                   .ForMember(x => x.ReservationStart, opt => opt.MapFrom(src => src.ReservationStart))
                   .ForMember(x => x.ReservationEnd, opt => opt.MapFrom(src => src.ReservationEnd))
                   .ForMember(x => x.UserId, opt => opt.MapFrom(src => src.UserId));
+
+            CreateMap<ReservationDto, Reservation>();
+
+            CreateMap<Reservation, ReservationDto>();
+
+            CreateMap<ReservationDto, EditReservationCommand>();
         }
     }
 }

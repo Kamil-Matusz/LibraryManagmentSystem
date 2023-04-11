@@ -26,9 +26,9 @@ internal  sealed class DatabaseInitializer : IHostedService
             {
                 status = new List<Status>()
                 {
-                    new Status(1, "Gotowa do odbioru"),
-                    new Status(2, "Wypożyczona"),
-                    new Status(3, "Oddana"),
+                    new Status(1, "Ready to pick up"),
+                    new Status(2, "On loan"),
+                    new Status(3, "Devoted"),
                 };
                 dbContext.Status.AddRange(status);
                 dbContext.SaveChanges();
