@@ -9,6 +9,6 @@ public interface IBooksRepository
     Task<IEnumerable<Book>> GetAllBooks();
     Task<Book> GetBook(string name);
     Task UpdateBook();
-    Task DeleteBook(Book book);
+    Task DeleteBook(string name);
     Task CreateBookReservation(Reservation reservation);
 }

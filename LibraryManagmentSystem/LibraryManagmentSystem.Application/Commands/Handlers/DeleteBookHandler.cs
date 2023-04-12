@@ -19,7 +19,7 @@ namespace LibraryManagmentSystem.Application.Commands.Handlers
 
         public async Task<Unit> Handle(DeleteBookCommand request, CancellationToken cancellationToken)
         {
-            var book = await _booksRepository.GetBookByName(request.Name);
+            await _booksRepository.DeleteBook(request.Name);
             return Unit.Value;
         }
     }

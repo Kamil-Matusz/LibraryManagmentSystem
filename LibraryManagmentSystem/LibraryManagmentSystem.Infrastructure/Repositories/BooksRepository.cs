@@ -29,8 +29,9 @@ internal class BooksRepository : IBooksRepository
         await _dbContext.SaveChangesAsync();
     }
 
-    public async Task DeleteBook(Book book)
+    public async Task DeleteBook(string name)
     {
+        var book = _dbContext.Books.FindAsync(name);
         _dbContext.Remove(book);
         await _dbContext.SaveChangesAsync();
     }

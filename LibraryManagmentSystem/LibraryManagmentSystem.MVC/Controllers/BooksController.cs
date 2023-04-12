@@ -88,7 +88,7 @@ public class BooksController : Controller
         return View(command);
     }
 
-    [HttpDelete]
+    [HttpPost]
     [Route("Books/{bookName}/Delete")]
     public async Task<IActionResult> DeleteBook(string bookName, DeleteBookCommand command)
     {
