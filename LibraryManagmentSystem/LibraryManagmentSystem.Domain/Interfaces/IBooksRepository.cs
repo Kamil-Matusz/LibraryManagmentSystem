@@ -10,4 +10,5 @@ public interface IBooksRepository
     Task<Book> GetBook(string name);
     Task UpdateBook();
     Task DeleteBook(Book book);
+    Task CreateBookReservation(Reservation reservation);
 }

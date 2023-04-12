@@ -1,0 +1,42 @@
+﻿@model LibraryManagmentSystem.Application.Commands.CreateReservationCommand
+
+@{
+    ViewData["Title"] = "CreateBookReservation";
+}
+
+<h1>CreateBookReservation</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateBookReservation">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-3">
+                <label asp-for="BookId" class="control-label"></label>
+                <input asp-for="BookId" class="form-control" />
+                <span asp-validation-for="BookId" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="ReservationStart" class="control-label"></label>
+                <input asp-for="ReservationStart" class="form-control" />
+                <span asp-validation-for="ReservationStart" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="ReservationEnd" class="control-label"></label>
+                <input asp-for="ReservationEnd" class="form-control" />
+                <span asp-validation-for="ReservationEnd" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
