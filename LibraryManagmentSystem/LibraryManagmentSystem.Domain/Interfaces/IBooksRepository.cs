@@ -11,4 +11,5 @@ public interface IBooksRepository
     Task UpdateBook();
     Task DeleteBook(Book book);
     Task CreateBookReservation(Reservation reservation);
+    Task<IEnumerable<Book>> GetBooksByType(string type);
 }

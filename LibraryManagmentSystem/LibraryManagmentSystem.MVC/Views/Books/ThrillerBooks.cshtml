@@ -1,0 +1,34 @@
+﻿@model IEnumerable<LibraryManagmentSystem.Application.DTO.BookByTypeDto>
+
+@{
+    ViewData["Title"] = "ThrillerBooks";
+}
+
+<h1>Thriller Books</h1>
+
+<p>
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-action="CreateBook" class="btn btn-secondary">Create New</a>
+    }
+</p>
+<div class="row">
+     @foreach (var item in Model)
+    {
+        <div class="card m-3" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">@item.Name</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@item.Author</h6>
+                <p class="card-text">@item.Genre</p>
+                <p class="card-text">@item.PublishedDate</p>
+                <a class="btn btn-primary" asp-controller="Books" asp-action="BookDetails" asp-route-bookName="@item.Name">Details</a>
+                <a class="btn btn-success" asp-controller="Books" asp-action="CreateBookReservation">Reserve Book</a>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a class="btn btn-outline-secondary" asp-controller="Books" asp-action="EditBook" asp-route-bookName="@item.Name">Edit</a>
+                    <a class="btn btn-outline-danger" asp-controller="Books" asp-action="DeleteBook" asp-route-bookName="@item.Name">Delete</a>
+                }
+            </div>
+        </div>
+    }
+</div>

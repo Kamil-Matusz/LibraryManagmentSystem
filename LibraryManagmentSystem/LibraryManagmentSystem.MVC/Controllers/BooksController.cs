@@ -31,6 +31,48 @@ public class BooksController : Controller
         return View(books);
     }
 
+    public async Task<IActionResult> ScienceFictionBooks()
+    {
+        string type = "SciFi";
+        var dto = await _mediator.Send(new GetBooksByTypeQuery(type));
+        return View(dto);
+    }
+
+    public async Task<IActionResult> ThrillerBooks()
+    {
+        string type = "Thriller";
+        var dto = await _mediator.Send(new GetBooksByTypeQuery(type));
+        return View(dto);
+    }
+
+    public async Task<IActionResult> LiteraryFictionBooks()
+    {
+        string type = "LiteraryFiction";
+        var dto = await _mediator.Send(new GetBooksByTypeQuery(type));
+        return View(dto);
+    }
+
+    public async Task<IActionResult> RomanceBooks()
+    {
+        string type = "Romance";
+        var dto = await _mediator.Send(new GetBooksByTypeQuery(type));
+        return View(dto);
+    }
+
+    public async Task<IActionResult> BiographiesBooks()
+    {
+        string type = "Biographies";
+        var dto = await _mediator.Send(new GetBooksByTypeQuery(type));
+        return View(dto);
+    }
+
+    public async Task<IActionResult> ActionsBooks()
+    {
+        string type = "Action_Adventure";
+        var dto = await _mediator.Send(new GetBooksByTypeQuery(type));
+        return View(dto);
+    }
+
     public IActionResult CreateBook()
     {
        

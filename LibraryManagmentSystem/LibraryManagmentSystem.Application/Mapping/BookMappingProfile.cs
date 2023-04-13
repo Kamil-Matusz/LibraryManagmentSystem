@@ -24,5 +24,9 @@ public class BookMappingProfile : Profile
         CreateMap<BookDto, EditBookCommand>();
 
         CreateMap<BookDto, DeleteBookCommand>();
+
+        CreateMap<Book,BookByTypeDto>();
+
+        CreateMap<BookByTypeDto,Book>();
     }
 }

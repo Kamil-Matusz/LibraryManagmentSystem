@@ -42,5 +42,11 @@ internal class BooksRepository : IBooksRepository
 
     public async Task<Book?> GetBookByName(string name) => await _dbContext.Books.FirstOrDefaultAsync(x => x.Name.ToLower() == name.ToLower());
 
+    public async Task<IEnumerable<Book>> GetBooksByType(string type)
+    {
+        var books = await _dbContext.Books.FromSqlRaw($"GetBooksByType {type}").ToListAsync();
+        return books;
+    }
+
     public Task UpdateBook() => _dbContext.SaveChangesAsync();
 }
