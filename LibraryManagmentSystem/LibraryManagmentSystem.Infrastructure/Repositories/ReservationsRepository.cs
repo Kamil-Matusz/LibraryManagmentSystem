@@ -4,6 +4,7 @@ using LibraryManagmentSystem.Domain.Interfaces;
 using LibraryManagmentSystem.Infrastructure.DAL;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,10 +17,12 @@ namespace LibraryManagmentSystem.Infrastructure.Repositories
     internal class ReservationsRepository : IReservationsRepository
     {
         private readonly LibraryDbContext _dbContext;
+        private readonly IConfiguration _configuration;
 
-        public ReservationsRepository(LibraryDbContext dbContext)
+        public ReservationsRepository(LibraryDbContext dbContext,IConfiguration configuration)
         {
             _dbContext = dbContext;
+            _configuration = configuration;
         }
 
         public async Task<IEnumerable<Reservation>> GetAllReservations() => await _dbContext.Reservations.ToListAsync();

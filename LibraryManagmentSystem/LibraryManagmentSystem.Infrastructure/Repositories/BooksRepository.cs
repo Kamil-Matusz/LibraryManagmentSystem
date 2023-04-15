@@ -1,18 +1,24 @@
-﻿using LibraryManagmentSystem.Domain.Entities;
+﻿using Dapper;
+using LibraryManagmentSystem.Domain.Entities;
 using LibraryManagmentSystem.Domain.Interfaces;
 using LibraryManagmentSystem.Infrastructure.DAL;
 using MediatR;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace LibraryManagmentSystem.Infrastructure.Repositories;
 
 internal class BooksRepository : IBooksRepository
 {
     private readonly LibraryDbContext _dbContext;
+    private readonly IConfiguration _configuration;
 
-    public BooksRepository(LibraryDbContext dbContext)
+    public BooksRepository(LibraryDbContext dbContext,IConfiguration configuration)
     {
         _dbContext = dbContext;
+        _configuration = configuration;
     }
 
     public Task Commit() => _dbContext.SaveChangesAsync();
@@ -29,10 +35,10 @@ internal class BooksRepository : IBooksRepository
         await _dbContext.SaveChangesAsync();
     }
 
-    public async Task DeleteBook(Book book)
+    public async Task DeleteBook(string name)
     {
-        _dbContext.Remove(book);
-        await _dbContext.SaveChangesAsync();
+        using var connection = new SqlConnection(_configuration.GetConnectionString("connectionString"));
+        await connection.ExecuteAsync("delete from Books where Name = @bookName", new { bookName = name });
     }
 
     public async Task<IEnumerable<Book>> GetAllBooks() => await _dbContext.Books.ToListAsync();
