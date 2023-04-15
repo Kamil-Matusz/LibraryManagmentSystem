@@ -6,3 +6,19 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+@if(User.IsInRole("Admin"))
+{
+   <nav class ="navbar bg-white">
+        <ul class ="nav navbar-nav">
+            <li class ="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Reservations" asp-action="Index"><i class="bi bi-window"> Get All Reservations</i></a>
+            </li>
+            <li class ="nav-item">
+                  <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="Index"><i class="bi bi-book"> Get All Books</i></a>
+            </li>
+            <li class ="nav-item">
+                  <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="CreateBook"><i class="bi bi-database-add"> Add New Book</i></a>
+            </li>
+        </ul>
+    </nav>
+}
