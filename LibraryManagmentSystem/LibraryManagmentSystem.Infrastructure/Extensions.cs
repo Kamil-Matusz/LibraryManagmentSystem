@@ -15,6 +15,7 @@ public static class Extensions
         services.AddDatabase(configuration);
         services.AddScoped<IBooksRepository, BooksRepository>();
         services.AddScoped<IReservationsRepository,ReservationsRepository>();
+        services.AddScoped<IUserRepository,UserRepository>();
         return services;
     }
     
