@@ -10,6 +10,8 @@ namespace LibraryManagmentSystem.Domain.Interfaces
     public interface IReservationsRepository
     {
         Task<IEnumerable<Reservation>> GetAllReservations();
+        Task<IEnumerable<Reservation>> ReservationsInCurrentMonth();
+        Task<IEnumerable<Reservation>> ReservationsInCurrentDay();
         Task<Reservation> GetReservationById(Guid id);
         Task UpdateReservation();
     }

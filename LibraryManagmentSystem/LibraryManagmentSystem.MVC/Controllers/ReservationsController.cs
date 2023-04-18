@@ -23,6 +23,18 @@ namespace LibraryManagmentSystem.MVC.Controllers
             return View(reservations);
         }
 
+        public async Task<IActionResult> BookingInCurrentMonth()
+        {
+            var reservations = await _mediator.Send(new GetMonthBookingQuery());
+            return View(reservations);
+        }
+
+        public async Task<IActionResult> BookingInCurrentDay()
+        {
+            var reservations = await _mediator.Send(new GetDayBookingQuery());
+            return View(reservations);
+        }
+
         [Route("Reservations/{reservationId}/Details")]
         public async Task<IActionResult> ReservationDetails(Guid reservationId)
         {

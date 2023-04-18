@@ -29,6 +29,26 @@ namespace LibraryManagmentSystem.Infrastructure.Repositories
 
         public async Task<Reservation> GetReservationById(Guid id) => await _dbContext.Reservations.FirstAsync(x => x.ReservationId == id);
 
+        public async Task<IEnumerable<Reservation>> ReservationsInCurrentDay()
+        {
+            var now = DateTime.Now;
+            var day = now.Day;
+            var reservations = _dbContext.Reservations.FromSqlRaw($"BookingInCurrentDay {day}");
+            await reservations.ToListAsync();
+
+            return reservations;
+        }
+
+        public async Task<IEnumerable<Reservation>> ReservationsInCurrentMonth()
+        {
+            var now = DateTime.Now;
+            var month = now.Month;
+            var reservations = _dbContext.Reservations.FromSqlRaw($"BookingInCurrentMonth {month}");
+            await reservations.ToListAsync();
+
+            return reservations;
+        }
+
         public async Task UpdateReservation() => await _dbContext.SaveChangesAsync();
     }
 }
