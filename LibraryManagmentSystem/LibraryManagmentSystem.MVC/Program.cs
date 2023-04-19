@@ -1,5 +1,6 @@
 using LibraryManagmentSystem.Application;
 using LibraryManagmentSystem.Infrastructure;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddApplication();
+builder.Services
+    .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
@@ -24,8 +28,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
 
 
 app.UseCookiePolicy(new CookiePolicyOptions

@@ -8,3 +8,10 @@ A system for managing the library, with the possibility of borrowing books and m
 - EF Core
 - Microsft SQL Server
 - Mapper
+
+# App Documentation
+![](/git_images/BookList.png)
+![](/git_images/BookAdminPanel.png)
+![](/git_images/CreateReservation.png)
+![](/git_images/LoginPanel.png)
+![](/git_images/AccountSettings.png)

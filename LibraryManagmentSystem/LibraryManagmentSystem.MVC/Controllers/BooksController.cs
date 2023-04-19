@@ -73,13 +73,14 @@ public class BooksController : Controller
         return View(dto);
     }
 
+    [Authorize(Roles = "Admin")]
     public IActionResult CreateBook()
     {
        
         return View();
     }
 
-    
+    [Authorize(Roles = "Admin")]
     [HttpPost]
     public async Task<IActionResult> CreateBook(CreateBookCommand command)
     {

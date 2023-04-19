@@ -2,7 +2,9 @@
 using LibraryManagmentSystem.Application.Commands;
 using LibraryManagmentSystem.Application.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace LibraryManagmentSystem.MVC.Controllers
 {
@@ -17,24 +19,28 @@ namespace LibraryManagmentSystem.MVC.Controllers
             _mapper = mapper;
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var reservations = await _mediator.Send(new GetAllReservationsQuery());
             return View(reservations);
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> BookingInCurrentMonth()
         {
             var reservations = await _mediator.Send(new GetMonthBookingQuery());
             return View(reservations);
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> BookingInCurrentDay()
         {
             var reservations = await _mediator.Send(new GetDayBookingQuery());
             return View(reservations);
         }
 
+        [Authorize(Roles = "Admin")]
         [Route("Reservations/{reservationId}/Details")]
         public async Task<IActionResult> ReservationDetails(Guid reservationId)
         {
@@ -42,6 +48,7 @@ namespace LibraryManagmentSystem.MVC.Controllers
             return View(dto);
         }
 
+        [Authorize(Roles = "Admin")]
         [Route("Reservations/{reservationId}/Edit")]
         public async Task<IActionResult> EditReservationStatus(Guid reservationId)
         {
@@ -50,6 +57,7 @@ namespace LibraryManagmentSystem.MVC.Controllers
             return View(command);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("Reservations/{reservationId}/Edit")]
         public async Task<IActionResult> EditReservationStatus(Guid reservationId, EditReservationCommand command)
