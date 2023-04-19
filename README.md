@@ -10,8 +10,8 @@ A system for managing the library, with the possibility of borrowing books and m
 - Mapper
 
 # App Documentation
-![](/git_images/BookList.png)
-![](/git_images/BookAdminPanel.png)
-![](/git_images/CreateReservation.png)
-![](/git_images/LoginPanel.png)
-![](/git_images/AccountSettings.png)
+![](/git_images/BookList.PNG)
+![](/git_images/BookAdminPanel.PNG)
+![](/git_images/CreateReservation.PNG)
+![](/git_images/LoginPanel.PNG)
+![](/git_images/AccountSettings.PNG)
