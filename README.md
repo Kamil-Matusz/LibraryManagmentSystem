@@ -11,7 +11,7 @@ A system for managing the library, with the possibility of borrowing books and m
 
 # App Documentation
 ![](/git_images/BookList.PNG)
-![](/git_images/BookAdminPanel.PNG)
+![](/git_images/BooksAdminPanel.PNG)
 ![](/git_images/CreateReservation.PNG)
 ![](/git_images/LoginPanel.PNG)
 ![](/git_images/AccountSettings.PNG)
