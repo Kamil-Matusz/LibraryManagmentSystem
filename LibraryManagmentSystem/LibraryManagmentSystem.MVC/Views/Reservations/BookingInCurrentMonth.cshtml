@@ -27,6 +27,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.StatusId)
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -49,6 +50,10 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StatusId)
+            </td>
+            <td>
+                 <a class="btn btn-warning" asp-controller="Reservations" asp-action="EditReservationStatus" asp-route-reservationId="@item.ReservationId">Edit Status</a>
+                 <a class="btn btn-info" asp-controller="Reservations" asp-action="ReservationDetails" asp-route-reservationId="@item.ReservationId">Details</a>
             </td>
         </tr>
 }

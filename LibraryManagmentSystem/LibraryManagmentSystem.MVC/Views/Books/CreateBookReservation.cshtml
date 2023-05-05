@@ -12,9 +12,7 @@
         <form asp-action="CreateBookReservation">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group mb-3">
-                <label asp-for="BookId" class="control-label"></label>
-                <input asp-for="BookId" class="form-control" />
-                <span asp-validation-for="BookId" class="text-danger"></span>
+                @Html.DropDownListFor(x => x.BookId, (IEnumerable<SelectListItem>)ViewBag.Books,"Select Book", new {@class = "form-control"})
             </div>
             <div class="form-group mb-3">
                 <label asp-for="ReservationStart" class="control-label"></label>

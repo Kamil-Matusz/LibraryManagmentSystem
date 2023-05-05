@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagmentSystem.Infrastructure.DAL;
 
-internal class LibraryDbContext : IdentityDbContext
+    public class LibraryDbContext : IdentityDbContext
 {
     public DbSet<Book> Books { get; set; }
     public DbSet<Reservation> Reservations { get; set; }
