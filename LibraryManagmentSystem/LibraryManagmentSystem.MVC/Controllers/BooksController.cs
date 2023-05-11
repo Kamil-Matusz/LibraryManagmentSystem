@@ -151,6 +151,7 @@ public class BooksController : Controller
         return RedirectToAction(nameof(Index));
     }
 
+    [Authorize]
     public IActionResult CreateBookReservation()
     {
         BooksDropDownList();
@@ -159,6 +160,7 @@ public class BooksController : Controller
 
 
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> CreateBookReservation(CreateReservationCommand command)
     {
         if (!ModelState.IsValid)
