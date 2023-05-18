@@ -6,11 +6,14 @@ using LibraryManagmentSystem.Application.Queries;
 using LibraryManagmentSystem.Application.Queries.Handlers;
 using LibraryManagmentSystem.Application.Services;
 using LibraryManagmentSystem.Domain.Entities;
+using LibraryManagmentSystem.Infrastructure.DAL;
 using LibraryManagmentSystem.MVC.Extensions;
 using LibraryManagmentSystem.MVC.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace LibraryManagmentSystem.MVC.Controllers;
@@ -19,10 +22,12 @@ public class BooksController : Controller
 {
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
-    public BooksController(IMediator mediator,IMapper mapper)
+    private readonly LibraryDbContext _dbContext;
+    public BooksController(IMediator mediator,IMapper mapper, LibraryDbContext dbContext)
     {
         _mediator = mediator;
         _mapper = mapper;
+        _dbContext = dbContext;
     }
 
     public async Task<IActionResult> Index()
@@ -123,6 +128,7 @@ public class BooksController : Controller
         return RedirectToAction(nameof(Index));
     }
 
+    [Authorize(Roles = "Admin")]
     [Route("Books/{bookName}/Delete")]
     public async Task<IActionResult> DeleteBook(string bookName)
     {
@@ -132,6 +138,7 @@ public class BooksController : Controller
     }
 
     [HttpDelete]
+    [Authorize(Roles = "Admin")]
     [Route("Books/{bookName}/Delete")]
     public async Task<IActionResult> DeleteBook(string bookName, DeleteBookCommand command)
     {
@@ -144,14 +151,16 @@ public class BooksController : Controller
         return RedirectToAction(nameof(Index));
     }
 
+    [Authorize]
     public IActionResult CreateBookReservation()
     {
-
+        BooksDropDownList();
         return View();
     }
 
 
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> CreateBookReservation(CreateReservationCommand command)
     {
         if (!ModelState.IsValid)
@@ -161,5 +170,11 @@ public class BooksController : Controller
         await _mediator.Send(command);
 
         return RedirectToAction(nameof(Index));
+    }
+
+    private void BooksDropDownList()
+    {
+        List<SelectListItem> books = new SelectList(_dbContext.Books, "BookId", "Name").ToList();
+        ViewBag.Books = books;
     }
 }

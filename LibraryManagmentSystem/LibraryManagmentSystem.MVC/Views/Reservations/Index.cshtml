@@ -55,7 +55,6 @@
             <td>
                  <a class="btn btn-warning" asp-controller="Reservations" asp-action="EditReservationStatus" asp-route-reservationId="@item.ReservationId">Edit Status</a>
                  <a class="btn btn-info" asp-controller="Reservations" asp-action="ReservationDetails" asp-route-reservationId="@item.ReservationId">Details</a>
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }

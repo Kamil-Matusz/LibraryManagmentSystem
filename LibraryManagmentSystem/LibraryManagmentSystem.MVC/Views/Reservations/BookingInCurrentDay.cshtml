@@ -51,9 +51,8 @@
                 @Html.DisplayFor(modelItem => item.StatusId)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                 <a class="btn btn-warning" asp-controller="Reservations" asp-action="EditReservationStatus" asp-route-reservationId="@item.ReservationId">Edit Status</a>
+                 <a class="btn btn-info" asp-controller="Reservations" asp-action="ReservationDetails" asp-route-reservationId="@item.ReservationId">Details</a>
             </td>
         </tr>
 }
