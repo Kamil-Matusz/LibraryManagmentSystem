@@ -9,6 +9,11 @@ A system for managing the library, with the possibility of borrowing books and m
 - Microsft SQL Server
 - Mapper
 
+## Database configuration
+For the database to work properly, create a migration and apply the appropriate data in the file <b>appsettings.json</b> on line 10 <b>"connectionString"</b> change the database path to your database path.
+After changing and starting the project, a database should be created automatically with the initial data.
+After creating the database, you need to apply the procedures from the SQL folder.
+
 # App Documentation
 ![](/git_images/BookList.PNG)
 ![](/git_images/BooksAdminPanel.PNG)
