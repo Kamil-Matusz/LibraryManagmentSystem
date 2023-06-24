@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using LibraryManagmentSystem.Application.ApplicationUser;
 using LibraryManagmentSystem.Domain.Entities;
 using LibraryManagmentSystem.Domain.Interfaces;
 using LibraryManagmentSystem.Infrastructure.DAL;
@@ -18,11 +19,13 @@ namespace LibraryManagmentSystem.Infrastructure.Repositories
     {
         private readonly LibraryDbContext _dbContext;
         private readonly IConfiguration _configuration;
+        private readonly IUserContext _userContext;
 
-        public ReservationsRepository(LibraryDbContext dbContext,IConfiguration configuration)
+        public ReservationsRepository(LibraryDbContext dbContext,IConfiguration configuration,IUserContext userContext)
         {
             _dbContext = dbContext;
             _configuration = configuration;
+            _userContext = userContext;
         }
 
         public async Task<IEnumerable<Reservation>> GetAllReservations() => await _dbContext.Reservations.ToListAsync();
@@ -50,5 +53,14 @@ namespace LibraryManagmentSystem.Infrastructure.Repositories
         }
 
         public async Task UpdateReservation() => await _dbContext.SaveChangesAsync();
+
+        public async Task<IEnumerable<Reservation>> UsersReservations()
+        {
+            var currentUser = _userContext.GetCurrentUser();
+            var userId = currentUser.UserId;
+            var reservations = await _dbContext.Reservations.Where(x => x.UserId == userId && x.StatusId != 3).ToListAsync();
+
+            return reservations;
+        }
     }
 }

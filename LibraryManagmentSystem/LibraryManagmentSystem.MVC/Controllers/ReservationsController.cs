@@ -26,6 +26,13 @@ namespace LibraryManagmentSystem.MVC.Controllers
             return View(reservations);
         }
 
+        [Authorize]
+        public async Task<IActionResult> YoursReservations()
+        {
+            var reservations = await _mediator.Send(new GetUsersReservationQuery());
+            return View(reservations);
+        }
+
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> BookingInCurrentMonth()
         {

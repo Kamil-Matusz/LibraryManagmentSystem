@@ -1,0 +1,49 @@
+﻿@model IEnumerable<LibraryManagmentSystem.Application.DTO.ReservationDto>
+
+@{
+    ViewData["Title"] = "YoursReservations";
+}
+
+<h1 style="text-align:center">Yours Reservations</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservationId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservationStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservationEnd)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservationStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservationEnd)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
