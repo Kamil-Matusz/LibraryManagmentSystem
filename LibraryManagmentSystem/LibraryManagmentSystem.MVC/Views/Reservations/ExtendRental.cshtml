@@ -1,0 +1,42 @@
+﻿@model LibraryManagmentSystem.Application.Commands.RentalExtendCommand
+
+@{
+    ViewData["Title"] = "ExtendRental";
+}
+
+<h1>Extend this rental</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ExtendRental">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ReservationId" class="control-label"></label>
+                <input asp-for="ReservationId" class="form-control" disabled />
+                <span asp-validation-for="ReservationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReservationStart" class="control-label"></label>
+                <input asp-for="ReservationStart" class="form-control"  disabled/>
+                <span asp-validation-for="ReservationStart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReservationEnd" class="control-label"></label>
+                <input asp-for="ReservationEnd" class="form-control" />
+                <span asp-validation-for="ReservationEnd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="YoursReservations">Back to Yours Bookings</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

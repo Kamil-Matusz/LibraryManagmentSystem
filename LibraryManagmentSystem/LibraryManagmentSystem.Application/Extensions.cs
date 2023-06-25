@@ -17,6 +17,7 @@ public static class Extensions
         services.AddMediatR(typeof(CreateBookCommand));
         services.AddMediatR(typeof(EditBookCommand));
         services.AddMediatR(typeof(DeleteBookCommand));
+        services.AddMediatR(typeof(RentalExtendCommand));
         services.AddAutoMapper(typeof(BookMappingProfile));
 
         services.AddScoped<IUserContext, UserContext>();

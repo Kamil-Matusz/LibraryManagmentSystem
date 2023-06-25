@@ -39,9 +39,7 @@
                 @Html.DisplayFor(modelItem => item.ReservationEnd)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                 <a class="btn btn-warning" asp-controller="Reservations" asp-action="ExtendRental" asp-route-reservationId="@item.ReservationId">Extend Rental</a>
             </td>
         </tr>
 }

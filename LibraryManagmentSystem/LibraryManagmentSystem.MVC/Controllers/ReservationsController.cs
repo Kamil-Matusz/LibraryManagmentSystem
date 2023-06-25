@@ -78,5 +78,28 @@ namespace LibraryManagmentSystem.MVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize]
+        [Route("Reservations/{reservationId}/RentalExtend")]
+        public async Task<IActionResult> ExtendRental(Guid reservationId)
+        {
+            var dto = await _mediator.Send(new GetReservationDetailsQuery(reservationId));
+            RentalExtendCommand command = _mapper.Map<RentalExtendCommand>(dto);
+            return View(command);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [Route("Reservations/{reservationId}/RentalExtend")]
+        public async Task<IActionResult> ExtendRental(Guid reservationId, RentalExtendCommand command)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(command);
+            }
+
+            await _mediator.Send(command);
+            return RedirectToAction(nameof(YoursReservations));
+        }
+
     }
 }
