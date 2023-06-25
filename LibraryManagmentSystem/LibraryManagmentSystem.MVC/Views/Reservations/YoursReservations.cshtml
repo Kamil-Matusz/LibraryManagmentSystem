@@ -39,7 +39,7 @@
                 @Html.DisplayFor(modelItem => item.ReservationEnd)
             </td>
             <td>
-                 <a class="btn btn-warning" asp-controller="Reservations" asp-action="ExtendRental" asp-route-reservationId="@item.ReservationId">Extend Rental</a>
+                 <a class="btn btn-success" asp-controller="Reservations" asp-action="ExtendRental" asp-route-reservationId="@item.ReservationId">Extend Rental</a>
             </td>
         </tr>
 }
