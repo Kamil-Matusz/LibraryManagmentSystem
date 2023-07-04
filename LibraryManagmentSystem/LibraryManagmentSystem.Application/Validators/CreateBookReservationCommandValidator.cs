@@ -14,8 +14,13 @@ namespace LibraryManagmentSystem.Application.Validators
         public CreateBookReservationCommandValidator()
         {
             RuleFor(x => x.BookId).NotEmpty();
-            RuleFor(x => x.ReservationStart).NotEmpty();
-            RuleFor(x => x.ReservationEnd).NotEmpty();
+            RuleFor(x => x.ReservationStart).NotEmpty().Must(BeValidReservationStart);
+            RuleFor(x => x.ReservationEnd).NotEmpty().GreaterThan(x => x.ReservationStart);
+        }
+
+        private bool BeValidReservationStart(DateTime reservationStart)
+        {
+            return reservationStart.Date >= DateTime.Today;
         }
     }
 }

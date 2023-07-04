@@ -31,6 +31,8 @@ namespace LibraryManagmentSystem.Application.Mapping
             CreateMap<Reservation, ReservationDto>();
 
             CreateMap<ReservationDto, EditReservationCommand>();
+
+            CreateMap<ReservationDto, RentalExtendCommand>();
         }
     }
 }

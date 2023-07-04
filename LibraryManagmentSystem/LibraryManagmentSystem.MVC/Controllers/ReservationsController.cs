@@ -26,6 +26,13 @@ namespace LibraryManagmentSystem.MVC.Controllers
             return View(reservations);
         }
 
+        [Authorize]
+        public async Task<IActionResult> YoursReservations()
+        {
+            var reservations = await _mediator.Send(new GetUsersReservationQuery());
+            return View(reservations);
+        }
+
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> BookingInCurrentMonth()
         {
@@ -69,6 +76,29 @@ namespace LibraryManagmentSystem.MVC.Controllers
 
             await _mediator.Send(command);
             return RedirectToAction(nameof(Index));
+        }
+
+        [Authorize]
+        [Route("Reservations/{reservationId}/RentalExtend")]
+        public async Task<IActionResult> ExtendRental(Guid reservationId)
+        {
+            var dto = await _mediator.Send(new GetReservationDetailsQuery(reservationId));
+            RentalExtendCommand command = _mapper.Map<RentalExtendCommand>(dto);
+            return View(command);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [Route("Reservations/{reservationId}/RentalExtend")]
+        public async Task<IActionResult> ExtendRental(Guid reservationId, RentalExtendCommand command)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(command);
+            }
+
+            await _mediator.Send(command);
+            return RedirectToAction(nameof(YoursReservations));
         }
 
     }

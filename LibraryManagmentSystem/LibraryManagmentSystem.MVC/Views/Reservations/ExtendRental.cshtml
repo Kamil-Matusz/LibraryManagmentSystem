@@ -1,0 +1,54 @@
+﻿@model LibraryManagmentSystem.Application.Commands.RentalExtendCommand
+
+@{
+    ViewData["Title"] = "ExtendRental";
+}
+
+<h1>Extend this rental</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ExtendRental">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ReservationId" class="control-label"></label>
+                <input asp-for="ReservationId" class="form-control" disabled />
+                <span asp-validation-for="ReservationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReservationStart" class="control-label"></label>
+                <input asp-for="ReservationStart" class="form-control"  disabled/>
+                <span asp-validation-for="ReservationStart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReservationEnd" class="control-label"></label>
+                <input asp-for="ReservationEnd" class="form-control" data-val="true" data-val-date="The {0} field must be a valid date." data-val-futuredate="The date cannot be in the past" />
+                <span asp-validation-for="ReservationEnd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-success"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="YoursReservations" class="btn btn-primary">Back to Yours Bookings</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $.validator.addMethod("futuredate", function (value, element) {
+            var now = new Date();
+            var selectedDate = new Date(value);
+            return selectedDate >= now;
+        });
+
+        $.validator.unobtrusive.adapters.add("futuredate", [], function (options) {
+            options.rules["futuredate"] = true;
+            options.messages["futuredate"] = options.message;
+        });
+    </script>
+}
