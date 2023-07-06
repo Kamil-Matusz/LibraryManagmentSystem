@@ -12,6 +12,7 @@ namespace LibraryManagmentSystem.Domain.Interfaces
         Task<IEnumerable<Reservation>> GetAllReservations();
         Task<IEnumerable<ReservationWithBookName>> GetAllReservationsWithBookNames();
         Task<IEnumerable<Reservation>> UsersReservations();
+        Task<IEnumerable<ReservationWithBookName>> UsersReservationsWithBookName();
         Task<IEnumerable<Reservation>> ReservationsInCurrentMonth();
         Task<IEnumerable<Reservation>> ReservationsInCurrentDay();
         Task<Reservation> GetReservationById(Guid id);
