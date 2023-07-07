@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using LibraryManagmentSystem.Application.Queries;
+using LibraryManagmentSystem.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +20,13 @@ namespace LibraryManagmentSystem.MVC.Controllers
         {
             var users = await _mediator.Send(new GetAllUsersQuery());
             return View(users);
+        }
+
+        [Route("Users/{username}/Details")]
+        public async Task<IActionResult> UserDetails(string username)
+        {
+            var dto = await _mediator.Send(new GetUserDetailsQuery(username));
+            return View(dto);
         }
     }
 }

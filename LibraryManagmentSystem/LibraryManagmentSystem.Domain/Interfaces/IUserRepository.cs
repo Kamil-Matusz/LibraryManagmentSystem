@@ -10,5 +10,6 @@ namespace LibraryManagmentSystem.Domain.Interfaces
     public interface IUserRepository
     {
         Task<IEnumerable<IdentityUser>> GetAllUsers();
+        Task<IdentityUser?> GetUserByName(string username);
     }
 }

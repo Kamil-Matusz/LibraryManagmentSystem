@@ -18,6 +18,8 @@
             <th>
                 @Html.DisplayNameFor(model => model.Email)
             </th>
+            <th>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -31,6 +33,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
+            </td>
+             <td>
+                <a class="btn btn-primary" asp-controller="Users" asp-action="UserDetails" asp-route-username="@item.UserName">Account Details</a>
             </td>
         </tr>
 }

@@ -29,5 +29,16 @@ namespace LibraryManagmentSystem.Infrastructure.Repositories
                 return result.ToList();
             }
         }
+
+        public async Task<IdentityUser?> GetUserByName(string username) 
+        {
+            var sql = $"SELECT Id, UserName, Email, PhoneNumber FROM AspNetUsers WHERE UserName = '{username}'";
+            using (var connection = new SqlConnection("Server=(localdb)\\mssqllocaldb;Database=LibraryManagmentSystemDB;Trusted_Connection=True;"))
+            {
+                connection.Open();
+                var result = await connection.QuerySingleOrDefaultAsync<IdentityUser>(sql);
+                return result;
+            }
+        }
     }
 }
