@@ -20,3 +20,7 @@ After creating the database, you need to apply the procedures from the SQL folde
 ![](/git_images/CreateReservation.PNG)
 ![](/git_images/LoginPanel.PNG)
 ![](/git_images/AccountSettings.PNG)
+![](/git_images/ExtendRental.PNG)
+![](/git_images/ReservationList.PNG)
+![](/git_images/UsersList.PNG)
+![](/git_images/YoursReservations.PNG)
