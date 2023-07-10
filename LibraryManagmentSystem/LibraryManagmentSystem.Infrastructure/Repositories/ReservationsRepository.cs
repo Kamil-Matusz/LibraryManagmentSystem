@@ -30,6 +30,26 @@ namespace LibraryManagmentSystem.Infrastructure.Repositories
 
         public async Task<IEnumerable<Reservation>> GetAllReservations() => await _dbContext.Reservations.ToListAsync();
 
+        public async Task<IEnumerable<ReservationWithBookName>> GetAllReservationsWithBookNames()
+        {
+            var reservationsWithBookName = await _dbContext.Reservations.Join(
+             _dbContext.Books,
+             reservation => reservation.BookId,
+             book => book.BookId,
+             (reservation, book) => new ReservationWithBookName
+             {
+                 ReservationId = reservation.ReservationId,
+                 BookId = reservation.BookId,
+                 ReservationStart = reservation.ReservationStart,
+                 ReservationEnd = reservation.ReservationEnd,
+                 UserId = reservation.UserId,
+                 StatusId = reservation.StatusId,
+                 BookName = book.Name
+             }).ToListAsync();
+
+            return reservationsWithBookName;
+        }
+
         public async Task<Reservation> GetReservationById(Guid id) => await _dbContext.Reservations.FirstAsync(x => x.ReservationId == id);
 
         public async Task<IEnumerable<Reservation>> ReservationsInCurrentDay()
@@ -61,6 +81,32 @@ namespace LibraryManagmentSystem.Infrastructure.Repositories
             var reservations = await _dbContext.Reservations.Where(x => x.UserId == userId && x.StatusId != 3).ToListAsync();
 
             return reservations;
+        }
+
+        public async Task<IEnumerable<ReservationWithBookName>> UsersReservationsWithBookName()
+        {
+            var currentUser = _userContext.GetCurrentUser();
+            var userId = currentUser.UserId;
+
+            var reservationsWithBookName = await _dbContext.Reservations
+                .Where(x => x.UserId == userId && x.StatusId != 3)
+                .Join(
+                    _dbContext.Books,
+                    reservation => reservation.BookId,
+                    book => book.BookId,
+                    (reservation, book) => new ReservationWithBookName
+                    {
+                        ReservationId = reservation.ReservationId,
+                        BookId = reservation.BookId,
+                        ReservationStart = reservation.ReservationStart,
+                        ReservationEnd = reservation.ReservationEnd,
+                        UserId = reservation.UserId,
+                        StatusId = reservation.StatusId,
+                        BookName = book.Name
+                    })
+                .ToListAsync();
+
+            return reservationsWithBookName;
         }
     }
 }

@@ -22,7 +22,7 @@ namespace LibraryManagmentSystem.Application.Queries.Handlers
         }
         public async Task<IEnumerable<ReservationDto>> Handle(GetAllReservationsQuery request, CancellationToken cancellationToken)
         {
-            var reservations = await _reservationsRepository.GetAllReservations();
+            var reservations = await _reservationsRepository.GetAllReservationsWithBookNames();
             var dtos = _mapper.Map<IEnumerable<ReservationDto>>(reservations);
 
             return dtos;
