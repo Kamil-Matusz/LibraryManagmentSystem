@@ -1,5 +1,6 @@
 using LibraryManagmentSystem.Application;
 using LibraryManagmentSystem.Infrastructure;
+using LibraryManagmentSystem.Infrastructure.Logging;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,8 @@ builder.Services
     .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie();
 builder.Services.AddInfrastructure(builder.Configuration);
+
+builder.UseSerilog();
 
 var app = builder.Build();
 
