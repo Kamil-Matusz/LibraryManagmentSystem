@@ -6,14 +6,7 @@
     <projectFile profileName="LibraryManagmentSystem.MVCTests">LibraryManagmentSystem.MVCTests/LibraryManagmentSystem.MVCTests.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8826aef4-4c60-46f5-9af6-27c0478a6a26" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/Logging/Extensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/wwwroot/css/dark-mode.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LibraryManagmentSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LibraryManagmentSystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/LibraryManagmentSystem.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/LibraryManagmentSystem.Infrastructure.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Views/Shared/_Layout.cshtml" afterDir="false" />
-    </list>
+    <list default="true" id="8826aef4-4c60-46f5-9af6-27c0478a6a26" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,7 +127,7 @@
       <workItem from="1680634460166" duration="388000" />
       <workItem from="1680641454571" duration="604000" />
       <workItem from="1686729333626" duration="37000" />
-      <workItem from="1691348525690" duration="1829000" />
+      <workItem from="1691348525690" duration="1971000" />
     </task>
     <servers />
   </component>

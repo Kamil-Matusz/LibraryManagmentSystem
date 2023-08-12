@@ -81,7 +81,7 @@ public class BooksController : Controller
     [Authorize(Roles = "Admin")]
     public IActionResult CreateBook()
     {
-       
+        PublishedHousesDropDownList();
         return View();
     }
 
@@ -176,5 +176,11 @@ public class BooksController : Controller
     {
         List<SelectListItem> books = new SelectList(_dbContext.Books, "BookId", "Name").ToList();
         ViewBag.Books = books;
+    }
+
+    private void PublishedHousesDropDownList()
+    {
+        List<SelectListItem> publishedHouses = new SelectList(_dbContext.PublishedHouses, "PublishedHouseId", "PublishedHouseName").ToList();
+        ViewBag.PublishedHouses = publishedHouses;
     }
 }

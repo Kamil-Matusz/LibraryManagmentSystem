@@ -9,6 +9,7 @@ public class Book
     public string Author { get; set; }
     public string Genre { get; set; }
     public DateTime PublishedDate { get; set; }
+    public int PublishedHouseId { get; set; }
     public string? CreatedByUserId { get; set; }
     public IdentityUser? CreatedBy { get; set; }
 }

@@ -32,6 +32,9 @@
                 <span asp-validation-for="Genre" class="text-danger"></span>
             </div>
              <div class="form-group mb-3">
+                @Html.DropDownListFor(x => x.PublishedHouseId, (IEnumerable<SelectListItem>)ViewBag.PublishedHouses,"Select House", new {@class = "form-control"})
+            </div>
+             <div class="form-group mb-3">
                 <label class="control-label" for="Date">Published Date</label>
                 <input class="form-control" type="date" id="Date" asp-for="PublishedDate" />
                 <span asp-validation-for="PublishedDate" class="text-danger"></span>

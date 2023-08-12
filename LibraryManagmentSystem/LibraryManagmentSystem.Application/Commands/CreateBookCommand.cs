@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagmentSystem.Application.Commands
 {
-    public class CreateBookCommand : BookDto,IRequest
+    public class CreateBookCommand : CreateBookDto,IRequest
     {
     }
 }
