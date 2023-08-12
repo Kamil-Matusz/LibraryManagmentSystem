@@ -1,0 +1,25 @@
+﻿@model LibraryManagmentSystem.Application.Commands.CreatePublishedHouseCommand
+
+@{
+    ViewData["Title"] = "CreatePublishedHouse";
+}
+
+<h1>Create New Published House</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreatePublishedHouse">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PublishedHouseName" class="control-label"></label>
+                <input asp-for="PublishedHouseName" class="form-control" />
+                <span asp-validation-for="PublishedHouseName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

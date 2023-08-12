@@ -15,10 +15,12 @@ public static class Extensions
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
         services.AddMediatR(typeof(CreateBookCommand));
+        services.AddMediatR(typeof(CreatePublishedHouseCommand));
         services.AddMediatR(typeof(EditBookCommand));
         services.AddMediatR(typeof(DeleteBookCommand));
         services.AddMediatR(typeof(RentalExtendCommand));
         services.AddAutoMapper(typeof(BookMappingProfile));
+        services.AddAutoMapper(typeof(PublishedHouseMappingProfile));
 
         services.AddScoped<IUserContext, UserContext>();
 

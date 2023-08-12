@@ -1,20 +1,12 @@
 ﻿using AutoMapper;
-using LibraryManagmentSystem.Application.ApplicationUser;
 using LibraryManagmentSystem.Application.Commands;
-using LibraryManagmentSystem.Application.DTO;
 using LibraryManagmentSystem.Application.Queries;
-using LibraryManagmentSystem.Application.Queries.Handlers;
-using LibraryManagmentSystem.Application.Services;
-using LibraryManagmentSystem.Domain.Entities;
 using LibraryManagmentSystem.Infrastructure.DAL;
 using LibraryManagmentSystem.MVC.Extensions;
-using LibraryManagmentSystem.MVC.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 
 namespace LibraryManagmentSystem.MVC.Controllers;
 
