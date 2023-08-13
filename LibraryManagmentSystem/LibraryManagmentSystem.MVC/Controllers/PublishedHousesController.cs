@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using LibraryManagmentSystem.Application.Commands;
+using LibraryManagmentSystem.Application.Queries;
 using LibraryManagmentSystem.MVC.Extensions;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -16,6 +17,13 @@ namespace LibraryManagmentSystem.MVC.Controllers
         {
             _mapper = mapper;
             _mediator = mediator;
+        }
+
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Index()
+        {
+            var houses = await _mediator.Send(new GetAllPublishedHousesQuery());
+            return View(houses);
         }
 
         [Authorize(Roles = "Admin")]

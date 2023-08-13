@@ -10,5 +10,7 @@ namespace LibraryManagmentSystem.Domain.Interfaces
     public interface IPublishedHouseRepository
     {
         Task CreatePublishedHouse(PublishedHouse publishedHouse);
+        Task<IEnumerable<PublishedHouse>> GetAllPublishedHouses();
+        Task<PublishedHouse?> GetPublishedHouse(string name);
     }
 }

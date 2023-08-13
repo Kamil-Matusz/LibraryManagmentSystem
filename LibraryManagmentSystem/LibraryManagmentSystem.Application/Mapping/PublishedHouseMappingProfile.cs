@@ -16,6 +16,10 @@ namespace LibraryManagmentSystem.Application.Mapping
             CreateMap<CreatePublishedHouseDto, PublishedHouse>()
                 .ForMember(x => x.PublishedHouseName, opt => opt.MapFrom(src => src.PublishedHouseName))
                 .ReverseMap();
+
+            CreateMap<PublishedHouseDto, PublishedHouse>()
+                .ForMember(x => x.PublishedHouseName, opt => opt.MapFrom(src => src.PublishedHouseName))
+                .ReverseMap();
         }
     }
 }

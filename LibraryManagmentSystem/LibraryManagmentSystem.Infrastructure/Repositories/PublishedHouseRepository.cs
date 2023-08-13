@@ -1,6 +1,7 @@
 ﻿using LibraryManagmentSystem.Domain.Entities;
 using LibraryManagmentSystem.Domain.Interfaces;
 using LibraryManagmentSystem.Infrastructure.DAL;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -26,5 +27,9 @@ namespace LibraryManagmentSystem.Infrastructure.Repositories
             _dbContext.Add(publishedHouse);
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task<IEnumerable<PublishedHouse>> GetAllPublishedHouses() => await _dbContext.PublishedHouses.ToListAsync();
+
+        public async Task<PublishedHouse?> GetPublishedHouse(string name) => await _dbContext.PublishedHouses.FirstOrDefaultAsync(x => x.PublishedHouseName.ToLower() == name.ToLower());
     }
 }

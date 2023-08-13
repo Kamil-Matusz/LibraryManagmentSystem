@@ -15,7 +15,15 @@ namespace LibraryManagmentSystem.Application.Validators
         {
             RuleFor(x => x.PublishedHouseName)
                 .NotEmpty()
-                .MinimumLength(3);
+                .MinimumLength(3)
+                .Custom((value, context) =>
+                {
+                    var existingHouse = publishedHouseRepository.GetPublishedHouse(value).Result;
+                    if (existingHouse != null)
+                    {
+                        context.AddFailure($"{value} is not unique for house name");
+                    }
+                }); ;
         }
     }
 }
