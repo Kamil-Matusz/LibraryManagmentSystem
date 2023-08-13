@@ -102,6 +102,7 @@ public class BooksController : Controller
     [Route("Books/{bookName}/Edit")]
     public async Task<IActionResult> EditBook(string bookName)
     {
+        PublishedHousesDropDownList(); 
         var dto = await _mediator.Send(new GetBookDetailsQuery(bookName));
         EditBookCommand command = _mapper.Map<EditBookCommand>(dto);
         return View(command);

@@ -2,7 +2,9 @@
 using LibraryManagmentSystem.Application.Commands;
 using LibraryManagmentSystem.MVC.Extensions;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace LibraryManagmentSystem.MVC.Controllers
 {
@@ -16,11 +18,13 @@ namespace LibraryManagmentSystem.MVC.Controllers
             _mediator = mediator;
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult CreatePublishedHouse()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> CreatePublishedHouse(CreatePublishedHouseCommand command)
         {
