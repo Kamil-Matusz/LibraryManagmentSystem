@@ -19,14 +19,17 @@ After creating the database, you need to apply the procedures from the SQL folde
 ## Admin
 - Book Managment
 - Booking Managment
+- Adding new Book Published Houses
 - Generating documents and summaries
 - Displaying informations about users accounts
 - View book rentals with filters
+- Change View to dark mode
 
 ## User
 - Borrowing of books
 - Viewing your bookings
 - Managing your account
+- Change View to dark mode
 
 # App Documentation
 ![](/git_images/BookList.PNG)
@@ -38,3 +41,5 @@ After creating the database, you need to apply the procedures from the SQL folde
 ![](/git_images/ReservationList.PNG)
 ![](/git_images/UsersList.PNG)
 ![](/git_images/YoursReservations.PNG)
+![](/git_images/PublishedHouses.PNG)
+![](/git_images/CreatingPublishHouse.PNG)
