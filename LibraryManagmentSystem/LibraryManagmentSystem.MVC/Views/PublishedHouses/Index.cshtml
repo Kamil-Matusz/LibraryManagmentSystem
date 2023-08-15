@@ -1,0 +1,25 @@
+﻿@model IEnumerable<LibraryManagmentSystem.Application.DTO.PublishedHouseDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="text-align: center;">All Published Houses</h1>
+
+<table class="table" style="margin: 0 auto; text-align: center;">
+    <thead>
+        <tr>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td style="vertical-align: middle;">
+                @Html.DisplayFor(modelItem => item.PublishedHouseName)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

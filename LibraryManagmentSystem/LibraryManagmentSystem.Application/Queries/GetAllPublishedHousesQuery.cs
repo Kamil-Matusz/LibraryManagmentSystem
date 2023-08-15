@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryManagmentSystem.Application.Commands
+namespace LibraryManagmentSystem.Application.Queries
 {
-    public class CreateBookCommand : CreateBookDto,IRequest
+    public class GetAllPublishedHousesQuery : IRequest<IEnumerable<PublishedHouseDto>>
     {
     }
 }

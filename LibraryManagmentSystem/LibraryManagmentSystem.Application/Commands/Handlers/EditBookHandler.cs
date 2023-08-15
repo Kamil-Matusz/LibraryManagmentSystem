@@ -20,6 +20,7 @@ namespace LibraryManagmentSystem.Application.Commands.Handlers
             var book = await _booksRepository.GetBookByName(request.Name!);
             
             book.Author = request.Author;
+            book.PublishedHouseId = request.PublishedHouseId;
             book.PublishedDate = request.PublishedDate;
 
             await _booksRepository.UpdateBook();

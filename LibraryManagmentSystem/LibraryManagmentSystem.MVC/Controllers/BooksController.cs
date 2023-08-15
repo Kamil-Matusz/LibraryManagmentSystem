@@ -1,20 +1,12 @@
 ﻿using AutoMapper;
-using LibraryManagmentSystem.Application.ApplicationUser;
 using LibraryManagmentSystem.Application.Commands;
-using LibraryManagmentSystem.Application.DTO;
 using LibraryManagmentSystem.Application.Queries;
-using LibraryManagmentSystem.Application.Queries.Handlers;
-using LibraryManagmentSystem.Application.Services;
-using LibraryManagmentSystem.Domain.Entities;
 using LibraryManagmentSystem.Infrastructure.DAL;
 using LibraryManagmentSystem.MVC.Extensions;
-using LibraryManagmentSystem.MVC.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 
 namespace LibraryManagmentSystem.MVC.Controllers;
 
@@ -81,7 +73,7 @@ public class BooksController : Controller
     [Authorize(Roles = "Admin")]
     public IActionResult CreateBook()
     {
-       
+        PublishedHousesDropDownList();
         return View();
     }
 
@@ -110,6 +102,7 @@ public class BooksController : Controller
     [Route("Books/{bookName}/Edit")]
     public async Task<IActionResult> EditBook(string bookName)
     {
+        PublishedHousesDropDownList(); 
         var dto = await _mediator.Send(new GetBookDetailsQuery(bookName));
         EditBookCommand command = _mapper.Map<EditBookCommand>(dto);
         return View(command);
@@ -176,5 +169,11 @@ public class BooksController : Controller
     {
         List<SelectListItem> books = new SelectList(_dbContext.Books, "BookId", "Name").ToList();
         ViewBag.Books = books;
+    }
+
+    private void PublishedHousesDropDownList()
+    {
+        List<SelectListItem> publishedHouses = new SelectList(_dbContext.PublishedHouses, "PublishedHouseId", "PublishedHouseName").ToList();
+        ViewBag.PublishedHouses = publishedHouses;
     }
 }

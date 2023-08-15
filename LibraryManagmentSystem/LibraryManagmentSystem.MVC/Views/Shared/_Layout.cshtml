@@ -100,7 +100,9 @@
 <script>
     function toggleDarkMode() {
         const body = document.querySelector('body');
+        const table = document.getElementsByClassName('table');
         body.classList.toggle('dark-mode');
+        table.classList.toggle('dark-mode');
     }
 </script>
 

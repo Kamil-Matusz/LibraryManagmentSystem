@@ -13,5 +13,6 @@ internal sealed class BookConfiguration : IEntityTypeConfiguration<Book>
         builder.Property(x => x.Name)
             .HasMaxLength(300)
             .IsRequired();
+        builder.HasOne<PublishedHouse>().WithMany().HasForeignKey(x => x.PublishedHouseId);
     }
 }
