@@ -1,0 +1,29 @@
+name: .NET CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches: 
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v3
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+        
+    - name: Restore dependencies
+      run: dotnet restore ./LibraryManagmentSystem/LibraryManagmentSystem.sln
+      
+    - name: Build
+      run: dotnet build --configuration Release ./LibraryManagmentSystem/LibraryManagmentSystem.sln
