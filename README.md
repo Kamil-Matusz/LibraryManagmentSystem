@@ -10,11 +10,26 @@ A system for managing the library, with the possibility of borrowing books and m
 - Microsft SQL Server
 - Mapper
 - iTextSharp
+- Docker
+
+# Database
+![](/git_images/Database.PNG)
 
 ## Database configuration
 For the database to work properly, create a migration and apply the appropriate data in the file <b>appsettings.json</b> on line 10 <b>"connectionString"</b> change the database path to your database path.
 After changing and starting the project, a database should be created automatically with the initial data.
 After creating the database, you need to apply the procedures from the SQL folder.
+
+# Docker
+This repository includes a Docker Compose configuration for setting up a local development environment for the Library Management System. The configuration consists of two services:
+- **SqlServer:** Sets up a Microsoft SQL Server container with necessary environment variables for proper configuration.
+- **librarymanagmentsystem.mvc:** Runs a .NET MVC application container, providing the frontend interface for the library management system.
+
+## Docker Configuration
+1. Clone this repository to your local machine.
+2. Navigate to the root directory of the cloned repository.
+3. Modify the `docker-compose.yml` file to adjust any necessary configurations.
+4. Open a terminal and run the following command to start the containers: <b>`docker compose up`</b>
 
 ## Admin
 - Book Managment

@@ -1,0 +1,28 @@
+version: '3.4'
+
+networks:
+  MVCNetwork:
+   driver: bridge
+
+services:
+  SqlServer:
+    container_name: SqlContainer
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Admin123!
+    ports:
+      - 1433:1433
+    volumes:
+      - sqlvolume:/var/opt/mssql
+  librarymanagmentsystem.mvc:
+    container_name: MVCContainer
+    image: ${DOCKER_REGISTRY-}librarymanagmentsystemmvc
+    build:
+      context: .
+      dockerfile: LibraryManagmentSystem.MVC/Dockerfile
+    depends_on:
+        - SqlServer
+volumes:
+  sqlvolume:
+    driver: local
