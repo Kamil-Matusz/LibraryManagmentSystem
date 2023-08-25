@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LibraryManagmentSystem.Application.DTO.BookDto>
+﻿@model PagedList.IPagedList<LibraryManagmentSystem.Application.DTO.BookDto>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,7 +13,7 @@
     }
 </p>
 <div class="row">
-     @foreach (var item in Model)
+    @foreach (var item in Model)
     {
         <div class="card m-3" style="width: 18rem;">
             <div class="card-body">
@@ -32,3 +32,5 @@
         </div>
     }
 </div>
+
+

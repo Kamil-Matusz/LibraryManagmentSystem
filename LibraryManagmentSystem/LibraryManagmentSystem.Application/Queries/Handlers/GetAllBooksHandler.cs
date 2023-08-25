@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibraryManagmentSystem.Domain.Models;
 
 namespace LibraryManagmentSystem.Application.Queries.Handlers
 {
@@ -23,8 +24,10 @@ namespace LibraryManagmentSystem.Application.Queries.Handlers
 
         public async Task<IEnumerable<BookDto>> Handle(GetAllBooksQuery request, CancellationToken cancellationToken)
         {
+            var pager = new Pager(request.PageIndex, request.PageSize);
             var books = await _booksRepository.GetAllBooks();
-            var dtos = _mapper.Map<IEnumerable<BookDto>>(books);
+            var paginatedBooks = books.AsQueryable().Paginate(pager);
+            var dtos = _mapper.Map<IEnumerable<BookDto>>(paginatedBooks);
 
             return dtos;
         }

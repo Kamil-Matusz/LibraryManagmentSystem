@@ -10,5 +10,7 @@ namespace LibraryManagmentSystem.Application.Queries
 {
     public class GetAllBooksQuery : IRequest<IEnumerable<BookDto>>
     {
+        public int PageIndex { get; set; }
+        public int PageSize { get; set; }
     }
 }

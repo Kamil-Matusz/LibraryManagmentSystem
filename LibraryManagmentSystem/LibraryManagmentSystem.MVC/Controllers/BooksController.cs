@@ -7,6 +7,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using PagedList;
 
 namespace LibraryManagmentSystem.MVC.Controllers;
 
@@ -22,10 +23,14 @@ public class BooksController : Controller
         _dbContext = dbContext;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int? page, int? pageSize)
     {
+        int pageIndex = page ?? 1;
+        int pageSizeValue = pageSize ?? 10;
+        
         var books = await _mediator.Send(new GetAllBooksQuery());
-        return View(books);
+        var pagedBooks = books.ToPagedList(pageIndex, pageSizeValue);
+        return View(pagedBooks);
     }
 
     public async Task<IActionResult> ScienceFictionBooks()
