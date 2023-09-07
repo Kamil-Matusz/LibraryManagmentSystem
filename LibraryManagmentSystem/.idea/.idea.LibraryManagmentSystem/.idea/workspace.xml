@@ -8,12 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8826aef4-4c60-46f5-9af6-27c0478a6a26" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LibraryManagmentSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LibraryManagmentSystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Application/Commands/Handlers/EditBookHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Application/Commands/Handlers/EditBookHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Application/DTO/BookDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Application/DTO/BookDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Application/DTO/CreateBookDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Application/DTO/CreateBookDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Views/Books/BookDetails.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Views/Books/BookDetails.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Views/Books/CreateBook.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Views/Books/CreateBook.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Views/Books/EditBook.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.MVC/Views/Books/EditBook.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Application/Commands/Handlers/CreateReservationHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Application/Commands/Handlers/CreateReservationHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Domain/Interfaces/IBooksRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Domain/Interfaces/IBooksRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/Repositories/BooksRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagmentSystem.Infrastructure/Repositories/BooksRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

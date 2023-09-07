@@ -33,6 +33,15 @@ namespace LibraryManagmentSystem.Application.Commands.Handlers
                 return Unit.Value;
             }
 
+            var book = await _booksRepository.GetBookById(request.BookId);
+            if (book.Count <= 0)
+            {
+                return Unit.Value;
+            }
+
+            book.Count--;
+            await _booksRepository.UpdateBook();
+
             reservation.UserId = currentUser.UserId;
             reservation.StatusId = 1;
             await _booksRepository.CreateBookReservation(reservation);
