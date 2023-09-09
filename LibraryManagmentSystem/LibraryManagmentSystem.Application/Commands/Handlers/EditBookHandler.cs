@@ -22,6 +22,8 @@ namespace LibraryManagmentSystem.Application.Commands.Handlers
             book.Author = request.Author;
             book.PublishedHouseId = request.PublishedHouseId;
             book.PublishedDate = request.PublishedDate;
+            book.Description = request.Description;
+            book.Count = request.Count;
 
             await _booksRepository.UpdateBook();
             return Unit.Value;

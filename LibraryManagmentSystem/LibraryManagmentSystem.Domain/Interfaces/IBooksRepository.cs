@@ -6,6 +6,7 @@ public interface IBooksRepository
 {
     Task CreateBook(Book book);
     Task<Book?> GetBookByName(string name);
+    Task<Book> GetBookById(int bookId);
     Task<IEnumerable<Book>> GetAllBooks();
     Task<Book> GetBook(string name);
     Task UpdateBook();

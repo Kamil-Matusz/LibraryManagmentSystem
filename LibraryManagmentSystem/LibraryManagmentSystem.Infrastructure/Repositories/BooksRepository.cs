@@ -41,6 +41,9 @@ internal class BooksRepository : IBooksRepository
         await connection.ExecuteAsync("delete from Books where Name = @bookName", new { bookName = name });
     }
 
+    public async Task<Book> GetBookById(int bookId) =>
+        await _dbContext.Books.FirstOrDefaultAsync(x => x.BookId == bookId);
+
     public async Task<IEnumerable<Book>> GetAllBooks() => await _dbContext.Books.ToListAsync();
 
     public async Task<Book> GetBook(string name) => await _dbContext.Books.FirstAsync(x => x.Name == name);

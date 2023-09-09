@@ -20,6 +20,10 @@ namespace LibraryManagmentSystem.Application.Validators
                 .NotEmpty();
             RuleFor(x => x.PublishedDate)
                .NotEmpty();
+            RuleFor(x => x.Description)
+                .NotEmpty();
+            RuleFor(x => x.Count)
+                .NotEmpty();
         }
     }
 }
