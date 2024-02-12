@@ -9,6 +9,7 @@ A system for managing the library, with the possibility of borrowing books and m
 - Dapper
 - Microsft SQL Server
 - Mapper
+- FluentValidation
 - iTextSharp
 - Docker
 
